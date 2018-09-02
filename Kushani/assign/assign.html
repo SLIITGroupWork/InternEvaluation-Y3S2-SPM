@@ -1,0 +1,66 @@
+<div>
+    <acme-navbar></acme-navbar>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <h3>Assign Supervisor</h3>
+                                    <table>
+                                    <div class="">
+                                        <tr>
+                                            <div class="form-group">
+                                                <td><label>Intern Name:</label></td>
+                                                <td><input type="text" class="form-control" name="name" placeholder="Intern name" id="name"  ng-disabled="main.payType=='false'" >
+                                                <!--<button class="btn btn-success" ng-click="auth.showToastr()" type="submit">Search</button>-->
+                                                </td>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                        <div class="form-group">
+                                        <td><label>Department:</label></td>
+                                        <td><input type="text" class="form-control" name="assignedDept" placeholder="Assigned Department" id="assignedDept" disabled></td>
+                                        </div>
+                                        </tr>
+                                        <tr>
+                                        <div class="form-group">
+                                        <td><label>Designation:</label></td>
+                                        <td><input type="text" class="form-control" name="designation" placeholder="Designation of intern" id="designation" disabled></td>
+                                        </div>
+                                        </tr>
+                                        <tr>
+                                            <div class="form-group">
+                                                <td><label>Team Leader:</label></td>
+                                                <td><div class="selectContainer">
+                                                    <select class="form-control" name="Leader" ng-model="main.theatre" ng-change="main.loadMovies()" options ng-options="theatre.tName for theatre in main.theatres">
+                                                    </select>
+                                                </div>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                    </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group pull-right">
+                                <button class="btn btn-success">Assign</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
