@@ -46,3 +46,6 @@ Frontend/Frontend/typings
 # System Files
 Frontend/.DS_Store
 Frontend/Thumbs.db
+
+# Backend
+Backend/node_modules
