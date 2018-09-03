@@ -2,27 +2,42 @@
 
 # compiled output
 Frontend/dist
-Frontend//tmp
-Frontend//out-tsc
+Frontend/tmp
+Backend/tmp
+Frontend/out-tsc
 
 # dependencies
-Frontend//node_modules
+Frontend/node_modules
+Backend/node_modules
 
 # IDEs and editors
 /.idea
 Frontend/.idea
+Backend/.idea
+
 .project
 Frontend/.project
+Backend/.project
+
 .classpath
 Frontend/.classpath
+Backend/.classpath
+
 .c9/
 Frontend/.c9/
+Backend/.c9/
+
 *.launch
 Frontend/*.launch
+Backend/*.launch
+
 .settings/
 Frontend/.settings/
+Backend/.settings/
+
 *.sublime-workspace
 Frontend/*.sublime-workspace
+Backend/*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -32,20 +47,23 @@ Frontend/*.sublime-workspace
 !.vscode/extensions.json
 
 Frontend/.vscode/*
+Backend/.vscode/*
 
 # misc
 Frontend/.sass-cache
 Frontend/connect.lock
 Frontend/coverage
 Frontend/libpeerconnection.log
+Backend/libpeerconnection.log
 Frontend/npm-debug.log
+Backend/npm-debug.log
 Frontend/yarn-error.log
+Backend/yarn-error.log
 Frontend/testem.log
-Frontend/Frontend/typings
+Frontend/typings
 
 # System Files
 Frontend/.DS_Store
+Backend/.DS_Store
 Frontend/Thumbs.db
-
-# Backend
-Backend/node_modules
+Backend/Thumbs.db
