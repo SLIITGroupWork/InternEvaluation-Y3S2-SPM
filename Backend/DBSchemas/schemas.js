@@ -58,7 +58,7 @@ Mongoose.model('Book', Books);
 Mongoose.model('Author', Author);
 Mongoose.model('User',User);
 
-Mongoose.connect('mongodb://localhost:27017/library', function (err) {
+Mongoose.connect('mongodb://localhost:27017/internDB', function (err) {
     if (err) {
         console.log(err);
         process.exit(-1);
