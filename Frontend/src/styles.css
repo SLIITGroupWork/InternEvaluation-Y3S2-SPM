@@ -26,3 +26,7 @@
 .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
     color: #555555;
 }
+
+textarea.no-resize {
+    resize: none;
+}
