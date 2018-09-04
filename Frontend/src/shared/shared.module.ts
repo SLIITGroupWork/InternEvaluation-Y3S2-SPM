@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PrimeNgModule } from './prime-ng.module';;
-import { MessageService } from 'primeng/components/common/messageservice';
+import { MessageService } from 'primeng/api';
 import { BaseApiService } from './services';
 
 @NgModule({
