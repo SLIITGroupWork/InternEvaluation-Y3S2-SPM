@@ -1,0 +1,19 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+        <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    </div>
+    <div class="ui-g-12" [ngSwitch]="activeIndex">
+        <div class="ui-g" *ngSwitchCase="0">
+            <div class="form-group ui-g-12">
+                <textarea class="form-control" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
+            </div>
+        </div>
+
+        <div class="ui-g" *ngSwitchCase="1">
+            1
+            <div class="form-group ui-g-12">
+                <textarea class="form-control" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

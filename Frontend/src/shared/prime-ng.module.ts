@@ -2,34 +2,36 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import {
-    InputTextModule, ButtonModule, DataTableModule, AccordionModule, SidebarModule, MenuModule, MenuItem, ConfirmDialogModule, ConfirmationService, 
-    CalendarModule, DialogModule, DropdownModule, CheckboxModule, RadioButtonModule, TabViewModule, MessagesModule, GrowlModule, InputSwitchModule, 
-    FileUploadModule, InputTextareaModule, PanelMenuModule, AutoCompleteModule, ProgressBarModule, MultiSelectModule, InputMaskModule, CardModule, 
+    InputTextModule, ButtonModule, DataTableModule, AccordionModule, SidebarModule, MenuModule, MenuItem, ConfirmDialogModule, ConfirmationService,
+    CalendarModule, DialogModule, DropdownModule, CheckboxModule, RadioButtonModule, TabViewModule, MessagesModule, GrowlModule, InputSwitchModule,
+    FileUploadModule, InputTextareaModule, PanelMenuModule, AutoCompleteModule, ProgressBarModule, MultiSelectModule, InputMaskModule, CardModule,
     ScrollPanelModule, TreeModule, TreeTableModule, LightboxModule, KeyFilterModule
-  } from 'primeng/primeng';
+} from 'primeng/primeng';
 
-  import { TableModule } from 'primeng/table';
+import { StepsModule } from 'primeng/steps';
+import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
 
-  @NgModule({
-    imports: [ CommonModule ],
+@NgModule({
+    imports: [CommonModule],
     exports: [
-        InputTextModule, 
-        ButtonModule, 
-        DataTableModule, 
-        AccordionModule, 
-        SidebarModule, 
-        MenuModule, 
-        ConfirmDialogModule, 
-        CalendarModule,     
-        DialogModule, 
-        DropdownModule, 
-        CheckboxModule, 
-        RadioButtonModule, 
-        TabViewModule,  
-        MessagesModule, 
-        GrowlModule, 
-        InputSwitchModule, 
-        FileUploadModule, 
+        InputTextModule,
+        ButtonModule,
+        DataTableModule,
+        AccordionModule,
+        SidebarModule,
+        MenuModule,
+        ConfirmDialogModule,
+        CalendarModule,
+        DialogModule,
+        DropdownModule,
+        CheckboxModule,
+        RadioButtonModule,
+        TabViewModule,
+        MessagesModule,
+        GrowlModule,
+        InputSwitchModule,
+        FileUploadModule,
         InputTextareaModule,
         PanelMenuModule,
         AutoCompleteModule,
@@ -37,14 +39,18 @@ import {
         MultiSelectModule,
         InputMaskModule,
         CardModule,
-        ScrollPanelModule,        
+        ScrollPanelModule,
         TableModule,
         TreeModule,
         TreeTableModule,
         LightboxModule,
-        KeyFilterModule
+        KeyFilterModule,
+        ToastModule,
+        StepsModule
     ],
-    providers: [ConfirmationService]
+    providers: [
+        ConfirmationService
+    ]
 })
 export class PrimeNgModule { }
 
