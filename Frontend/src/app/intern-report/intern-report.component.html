@@ -1,19 +1,151 @@
 <div class="ui-g">
+
     <div class="ui-g-12">
-        <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
-    </div>
-    <div class="ui-g-12" [ngSwitch]="activeIndex">
-        <div class="ui-g" *ngSwitchCase="0">
-            <div class="form-group ui-g-12">
-                <textarea class="form-control" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
+
+        <h2>Internship Report - Form I-6</h2>
+
+        <div class="ui-g">
+
+            <div class="ui-g-12">
+                <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
             </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+                <hr/>
+            </div>
+
+            <div class="ui-g-12" [ngSwitch]="activeIndex">
+
+                <form [formGroup]="internReportForm">
+
+                    <div class="ui-g" *ngSwitchCase="0" formGroupName="introduction">
+
+                        <div class="ui-g-12">
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <h3>Introduction</h3>
+                                </div>
+                            </div>
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="companyOverview">Company Overview</label>
+                                        <textarea id="companyOverview" formControlName="companyOverview" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please give a brief description of the organisation and the department you carried out your internship"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="projectOverview">Project Overview</label>
+                                        <textarea id="projectOverview" formControlName="projectOverview" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please give an overview of the project(s) that you worked during your internship period"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ui-g" *ngSwitchCase="1" formGroupName="internshipInsight">
+
+                        <div class="ui-g-12">
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <h3>Internship Insight</h3>
+                                </div>
+                            </div>
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="objectives">Objectives</label>
+                                        <textarea id="objectives" formControlName="objectives" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please describe the company's objectives for the internship"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="procedures">Procedures</label>
+                                        <textarea id="procedures" formControlName="procedures" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please describe the procedures followed during the internship"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="methodology">Methodology</label>
+                                        <textarea id="methodology" formControlName="methodology" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please describe the methodology you used during the internship"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ui-g" *ngSwitchCase="2" formGroupName="learningOutcome">
+
+                        <div class="ui-g-12">
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <h3>Learning Outcome</h3>
+                                </div>
+                            </div>
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="learning">Learning</label>
+                                        <textarea id="learning" formControlName="learning" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please describe what student learned during the internship period"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="measurableOutcome"> Measurable Outcome</label>
+                                        <textarea id="measurableOutcome" formControlName="measurableOutcome" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
+                                            [autoResize]="true" placeholder="Please describe the measurable outcomes of the project"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ui-g-12">
+                                    <div class="form-group ui-g-12">
+                                        <label for="effectivenessEffort">Effectiveness of the Effort</label>
+                                        <textarea id="effectivenessEffort" formControlName="effectivenessEffort" class="form-control no-resize" [rows]="10" [cols]="30" pInputTextarea
+                                            [autoResize]="true" 
+                                            placeholder="Please describe how effective was the effort he spent by drawing the analysis of the experience gained during the internship period with classroom material you studied. 
+
+Also, you can describe what might have been done differently if the same internship was provided again"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
-        <div class="ui-g" *ngSwitchCase="1">
-            1
-            <div class="form-group ui-g-12">
-                <textarea class="form-control" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
-            </div>
-        </div>
     </div>
+
+
 </div>
