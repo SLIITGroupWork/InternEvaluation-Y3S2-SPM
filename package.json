@@ -1,7 +1,9 @@
 {
   "name": "s-p-m-project",
-  "version": "0.0.1",
   "description": "SPM Project ",
+  "author": "Chathuranga Basnayake",
+  "license": "MIT",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "build": "cd Frontend && npm run build",
@@ -10,12 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SLIITGroupWork/Unnamed-Y3S2-SPM.git"
+    "url": "git+https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM.git"
   },
-  "author": "Chathuranga Basnayake",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SLIITGroupWork/Unnamed-Y3S2-SPM/issues"
+    "url": "https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM/issues"
   },
-  "homepage": "https://github.com/SLIITGroupWork/Unnamed-Y3S2-SPM#readme"
+  "homepage": "https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM#readme"
 }
