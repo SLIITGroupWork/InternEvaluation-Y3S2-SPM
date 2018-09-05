@@ -1,7 +1,9 @@
 var nodemailer = require('nodemailer');
+var mongoose = require('../DBSchemas/schemas');
+const activitySchema = mongoose.model('ActivityDummy');
 
 let supervisorController = function () {
-    this.sendMail = function (senderEmail) {
+    this.sendMail = function (body) {
         return new Promise(function (resolve, reject) {
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
@@ -13,9 +15,9 @@ let supervisorController = function () {
 
             var mailOptions = {
                 from: 'ravinduta@gmail.com',
-                to: senderEmail,
-                subject: 'Sending Email using Node.js',
-                text: 'That was easy!'
+                to: body.senderEmail,
+                subject: body.emailSubject,
+                html: body.emailBody
             };
 
             transporter.sendMail(mailOptions, function(error, info){
@@ -27,6 +29,33 @@ let supervisorController = function () {
                 }
             });
         })
+    },
+    this.getDummyActivity = function (studentID) {
+        return new Promise(function (resolve,reject) {
+            activitySchema.find({studentID:studentID}).exec().then(function (item) {
+                resolve({status:200,data:item});
+            }).catch(function (error) {
+                reject({status:500,error:"error occured in server"});
+            })
+        })
+    },
+    this.saveDummyActivity = function (body) {
+        return new Promise(function (resolve, reject) {
+            const activity = new activitySchema(
+                {
+                    studentID:body.studentID,
+                    activity:body.activity,
+                    from:body.activity,
+                    to:body.to
+                }
+            )
+
+            activity.save().then(function () {
+                resolve({status:200,message:"Object added successfully"});
+            }).catch(function (error) {
+                reject({status:500,message:error});
+            })
+        });
     }
 }
 

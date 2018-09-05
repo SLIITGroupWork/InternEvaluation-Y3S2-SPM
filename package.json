@@ -1,0 +1,21 @@
+{
+  "name": "s-p-m-project",
+  "description": "SPM Project ",
+  "author": "Chathuranga Basnayake",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd Frontend && npm run build",
+    "build-full": "cd Frontend && npm i && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM/issues"
+  },
+  "homepage": "https://github.com/SLIITGroupWork/InternEvaluation-Y3S2-SPM#readme"
+}
