@@ -45,3 +45,15 @@ textarea.no-resize {
     margin-bottom: 5px;
     font-weight: 700;
 }
+
+.required {
+    color: #ff0000;
+}
+
+.text-highlightd{
+    color: #2196f3;
+}
+
+.text-warning {
+    color: #ff0000;
+}
