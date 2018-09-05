@@ -12,10 +12,8 @@ Router.post('/',function (req,res) {
 
 Router.get('/:studentID',function (req,res) {
     Controller.getDummyActivity(req.params.studentID).then(function (response) {
-        console.log("SaveDummy 4");
         res.status(response.status).send(response.data);
     }).catch(function (error) {
-        console.log("SaveDummy 5");
         res.status(error.status).send(error.error);
     })
 })

@@ -31,13 +31,10 @@ let supervisorController = function () {
         })
     },
     this.getDummyActivity = function (studentID) {
-        console.log("SaveDummy 1");
         return new Promise(function (resolve,reject) {
             activitySchema.find({studentID:studentID}).exec().then(function (item) {
-                console.log("SaveDummy 2");
                 resolve({status:200,data:item});
             }).catch(function (error) {
-                console.log("SaveDummy 3");
                 reject({status:500,error:"error occured in server"});
             })
         })
