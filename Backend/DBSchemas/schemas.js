@@ -54,10 +54,30 @@ const User = new Schema({
     }
 });
 
+
+const ActivityDummy = new Schema({
+   studentID:{
+       type:String,
+       required:true
+   },
+   activity:{
+       type:String,
+       required:true
+   },
+   from:{
+       type:String,
+       required:true
+   },
+   to:{
+       type:String,
+       required:true
+   }
+});
+
 Mongoose.model('Book', Books);
 Mongoose.model('Author', Author);
 Mongoose.model('User',User);
-
+Mongoose.model('ActivityDummy',ActivityDummy);
 Mongoose.connect('mongodb://localhost:27017/internDB', function (err) {
     if (err) {
         console.log(err);
