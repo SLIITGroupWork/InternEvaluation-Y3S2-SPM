@@ -46,8 +46,58 @@
                                 </div>
 
                                 <div class="ui-g-12">
-                                    <div class="form-group ui-g-12">
+                                    <div class="ui-g-12">
+                                        <label class="form-group-label">Glossary</label>
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <p>Abbreviations and definitions used in this document.</p>
+                                    </div>
+                                    <div class="ui-g-12" formArrayName="glossary">
 
+                                        <div class="ui-g" *ngIf="irFormIntroductionGlossary.length > 0">
+                                            <div class="ui-g-1 text-center text-bold">
+                                                No
+                                            </div>
+                                            <div class="ui-g-3 text-center text-bold">
+                                                Abbreviation
+                                            </div>
+                                            <div class="ui-g-6 text-center text-bold">
+                                                Definition
+                                            </div>
+                                            <div class="ui-g-2 text-center text-bold">
+                                                Action
+                                            </div>
+
+                                            <div class="ui-g-12 ui-g-nopad">
+                                                <hr/>
+                                            </div>
+                                        </div>
+
+                                        <div class="ui-g" [formGroupName]="i" *ngFor="let glossaryControllers of irFormIntroductionGlossary.controls; let i = index">
+
+                                            <div class="ui-g-1 text-center">
+                                                {{ i + 1 }}
+                                            </div>
+
+                                            <div class="ui-g-3">
+                                                <input class="form-control" type="text" formControlName="abbreviation" pInputText placeholder="Abbreviation">
+                                            </div>
+
+                                            <div class="ui-g-6">
+                                                <input class="form-control" type="text" formControlName="description" pInputText placeholder="Definition">
+                                            </div>
+
+                                            <div class="ui-g-2 text-center">
+                                                <button pButton icon="fa fa-trash" class="ui-button-danger" (click)="deleteGlossaryForm(i)"></button>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="ui-g">
+                                            <div class="ui-g-12">
+                                                <button pButton type="button" icon="fa fa-plus" label="Add Glossary" class="ui-button-rounded ui-button-success" (click)="addNewGlossaryForm()"></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -109,26 +159,25 @@
                             <div class="ui-g">
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="learning">Learning</label>
-                                        <textarea id="learning" formControlName="learning" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please describe what student learned during the internship period"></textarea>
+                                        <label for="learning"><span class="required">*</span>Learning</label>
+                                        <textarea id="learning" formControlName="learning" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"
+                                            placeholder="Please describe what student learned during the internship period"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
                                         <label for="measurableOutcome"> Measurable Outcome</label>
-                                        <textarea id="measurableOutcome" formControlName="measurableOutcome" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please describe the measurable outcomes of the project"></textarea>
+                                        <textarea id="measurableOutcome" formControlName="measurableOutcome" class="form-control no-resize" [rows]="5" [cols]="30"
+                                            pInputTextarea [autoResize]="true" placeholder="Please describe the measurable outcomes of the project"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
                                         <label for="effectivenessEffort">Effectiveness of the Effort</label>
-                                        <textarea id="effectivenessEffort" formControlName="effectivenessEffort" class="form-control no-resize" [rows]="10" [cols]="30" pInputTextarea
-                                            [autoResize]="true" 
-                                            placeholder="Please describe how effective was the effort he spent by drawing the analysis of the experience gained during the internship period with classroom material you studied. 
+                                        <textarea id="effectivenessEffort" formControlName="effectivenessEffort" class="form-control no-resize" [rows]="10" [cols]="30"
+                                            pInputTextarea [autoResize]="true" placeholder="Please describe how effective was the effort he spent by drawing the analysis of the experience gained during the internship period with classroom material you studied. 
 
 Also, you can describe what might have been done differently if the same internship was provided again"></textarea>
                                     </div>

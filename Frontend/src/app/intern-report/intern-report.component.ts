@@ -69,8 +69,8 @@ export class InternReportComponent implements OnInit {
         return this.irFormIntroduction.get('projectOverview');
     }
 
-    public get irFormIntroductionGlossary(): AbstractControl {
-        return this.irFormIntroduction.get('glossary');
+    public get irFormIntroductionGlossary(): FormArray {
+        return this.irFormIntroduction.get('glossary') as FormArray;
     }
 
     //#endregion
@@ -127,4 +127,12 @@ export class InternReportComponent implements OnInit {
     }
 
     //#endregion
+
+    public addNewGlossaryForm(): void {
+        this.irFormIntroductionGlossary.push(this.internReportFormIntroductionGlossaryForm());
+    }
+
+    public deleteGlossaryForm(formIndex: number): void {
+        this.irFormIntroductionGlossary.removeAt(formIndex);
+    }
 }
