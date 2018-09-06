@@ -7,11 +7,20 @@
         <div class="ui-g">
 
             <div class="ui-g-12">
+                <button pButton type="button" icon="fa fa-arrow-left" label="Previous" class="ui-button-success"
+                   (click)="onPreviousClick()" [disabled]="activeIndex == 0"></button>
+
+                <button pButton type="button" icon="{{ (activeIndex < 3) ? 'fa fa-arrow-right' : 'fa fa-check' }}" label="{{ (activeIndex < 3) ? 'Next' : 'Done' }}" 
+                    class="pull-right" [ngClass]="{ 'ui-button-success': (activeIndex < 3), 'ui-button-primary': (activeIndex == 3) }" iconPos="right"
+                    (click)="onNextClick()" [disabled]="activeIndex == 3 && internReportForm.invalid"></button>
+            </div>
+
+            <div class="ui-g-12">
                 <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
             </div>
 
             <div class="ui-g-12 ui-g-nopad">
-                <hr/>
+                <hr />
             </div>
 
             <div class="ui-g-12" [ngSwitch]="activeIndex">
@@ -31,17 +40,23 @@
                             <div class="ui-g">
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="companyOverview">Company Overview</label>
-                                        <textarea id="companyOverview" formControlName="companyOverview" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please give a brief description of the organisation and the department you carried out your internship"></textarea>
+                                        <label for="companyOverview">Company Overview <span class="required">*</span></label>
+                                        <textarea id="companyOverview" formControlName="companyOverview" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please give a brief description of the organisation and the department you carried out your internship"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormIntroductionCompanyOverview?.errors?.required && irFormIntroductionCompanyOverview.touched">
+                                            <span>Company Overview is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="projectOverview">Project Overview</label>
-                                        <textarea id="projectOverview" formControlName="projectOverview" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please give an overview of the project(s) that you worked during your internship period"></textarea>
+                                        <label for="projectOverview">Project Overview <span class="required">*</span></label>
+                                        <textarea id="projectOverview" formControlName="projectOverview" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please give an overview of the project(s) that you worked during your internship period"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormIntroductionProjectOverview?.errors?.required && irFormIntroductionProjectOverview.touched">
+                                            <span>Project Overview is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -69,7 +84,7 @@
                                             </div>
 
                                             <div class="ui-g-12 ui-g-nopad">
-                                                <hr/>
+                                                <hr />
                                             </div>
                                         </div>
 
@@ -80,11 +95,19 @@
                                             </div>
 
                                             <div class="ui-g-3">
-                                                <input class="form-control" type="text" formControlName="abbreviation" pInputText placeholder="Abbreviation">
+                                                <input class="form-control" type="text" formControlName="abbreviation"
+                                                    pInputText placeholder="Abbreviation">
+                                                <div class="errorMessage" *ngIf="irFormIntroductionGlossaryAbbreviationArrayFormByIndex(i)?.errors?.required && irFormIntroductionGlossaryAbbreviationArrayFormByIndex(i).touched">
+                                                    <span>Abbreviation is required</span>
+                                                </div>
                                             </div>
 
                                             <div class="ui-g-6">
-                                                <input class="form-control" type="text" formControlName="description" pInputText placeholder="Definition">
+                                                <input class="form-control" type="text" formControlName="description"
+                                                    pInputText placeholder="Definition">
+                                                <div class="errorMessage" *ngIf="irFormIntroductionGlossaryDescriptionArrayFormByIndex(i)?.errors?.required && irFormIntroductionGlossaryDescriptionArrayFormByIndex(i).touched">
+                                                    <span>Definition is required</span>
+                                                </div>
                                             </div>
 
                                             <div class="ui-g-2 text-center">
@@ -95,7 +118,8 @@
 
                                         <div class="ui-g">
                                             <div class="ui-g-12">
-                                                <button pButton type="button" icon="fa fa-plus" label="Add Glossary" class="ui-button-rounded ui-button-success" (click)="addNewGlossaryForm()"></button>
+                                                <button pButton type="button" icon="fa fa-plus" label="Add Glossary"
+                                                    class="ui-button-rounded ui-button-success" (click)="addNewGlossaryForm()"></button>
                                             </div>
                                         </div>
                                     </div>
@@ -119,25 +143,34 @@
                             <div class="ui-g">
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="objectives">Objectives</label>
-                                        <textarea id="objectives" formControlName="objectives" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please describe the company's objectives for the internship"></textarea>
+                                        <label for="objectives">Objectives <span class="required">*</span></label>
+                                        <textarea id="objectives" formControlName="objectives" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe the company's objectives for the internship"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormInternshipInsightObjectives?.errors?.required && irFormInternshipInsightObjectives.touched">
+                                            <span>Objectives is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="procedures">Procedures</label>
-                                        <textarea id="procedures" formControlName="procedures" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please describe the procedures followed during the internship"></textarea>
+                                        <label for="procedures">Procedures <span class="required">*</span></label>
+                                        <textarea id="procedures" formControlName="procedures" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe the procedures followed during the internship"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormInternshipInsightProcedures?.errors?.required && irFormInternshipInsightProcedures.touched">
+                                            <span>Procedures is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="methodology">Methodology</label>
-                                        <textarea id="methodology" formControlName="methodology" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea
-                                            [autoResize]="true" placeholder="Please describe the methodology you used during the internship"></textarea>
+                                        <label for="methodology">Methodology <span class="required">*</span></label>
+                                        <textarea id="methodology" formControlName="methodology" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe the methodology you used during the internship"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormInternshipInsightMethodology?.errors?.required && irFormInternshipInsightMethodology.touched">
+                                            <span>Methodology is required</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -159,31 +192,109 @@
                             <div class="ui-g">
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="learning"><span class="required">*</span>Learning</label>
-                                        <textarea id="learning" formControlName="learning" class="form-control no-resize" [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"
-                                            placeholder="Please describe what student learned during the internship period"></textarea>
+                                        <label for="learning">Learning <span class="required">*</span></label>
+                                        <textarea id="learning" formControlName="learning" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe what student learned during the internship period"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormLearningOutcomeLearning?.errors?.required && irFormLearningOutcomeLearning.touched">
+                                            <span>Learning is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="measurableOutcome"> Measurable Outcome</label>
-                                        <textarea id="measurableOutcome" formControlName="measurableOutcome" class="form-control no-resize" [rows]="5" [cols]="30"
-                                            pInputTextarea [autoResize]="true" placeholder="Please describe the measurable outcomes of the project"></textarea>
+                                        <label for="measurableOutcome">Measurable Outcome <span class="required">*</span></label>
+                                        <textarea id="measurableOutcome" formControlName="measurableOutcome" class="form-control no-resize"
+                                            [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe the measurable outcomes of the project"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormLearningOutcomeMeasurableOutcome?.errors?.required && irFormLearningOutcomeMeasurableOutcome.touched">
+                                            <span>Measurable Outcome is required</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="ui-g-12">
                                     <div class="form-group ui-g-12">
-                                        <label for="effectivenessEffort">Effectiveness of the Effort</label>
-                                        <textarea id="effectivenessEffort" formControlName="effectivenessEffort" class="form-control no-resize" [rows]="10" [cols]="30"
-                                            pInputTextarea [autoResize]="true" placeholder="Please describe how effective was the effort he spent by drawing the analysis of the experience gained during the internship period with classroom material you studied. 
+                                        <label for="effectivenessEffort">Effectiveness of the Effort <span class="required">*</span></label>
+                                        <textarea id="effectivenessEffort" formControlName="effectivenessEffort" class="form-control no-resize"
+                                            [rows]="10" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Please describe how effective was the effort he spent by drawing the analysis of the experience gained during the internship period with classroom material you studied. 
 
 Also, you can describe what might have been done differently if the same internship was provided again"></textarea>
+                                        <div class="errorMessage" *ngIf="irFormLearningOutcomeEffectivenessEffort?.errors?.required && irFormLearningOutcomeEffectivenessEffort.touched">
+                                            <span>Effectiveness of the Effort is required</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
+                        </div>
+
+                    </div>
+
+                    <div class="ui-g" *ngSwitchCase="3" formGroupName="sampleWork">
+
+                        <div class="ui-g-12">
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <h3>Sample Work</h3>
+                                    <div class="errorMessage" *ngIf="irFormSampleWork?.errors?.sampleWorkMinLength">
+                                        <span>(At least two works are required)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+
+                                    <div class="ui-g border-top-bottom" [formGroupName]="i" *ngFor="let sampleworkControllers of irFormSampleWork.controls; let i = index">
+
+                                        <div class="form-group ui-g-12">
+                                            <label for="{{ 'title-' + i }}">Title</label>
+                                            <input id="{{ 'title-' + i }}" class="form-control" type="text"
+                                                formControlName="title" pInputText placeholder="Title">
+                                            <div class="errorMessage" *ngIf="irFormSampleWorkFormTitle(i)?.errors?.required && irFormSampleWorkFormTitle(i).touched">
+                                                <span>Title is required</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ui-g-12">
+                                            <label for="{{ 'description' + i }}">Description</label>
+                                            <textarea id="{{ 'description' + i }}" formControlName="description" class="form-control no-resize"
+                                                [rows]="5" [cols]="30" pInputTextarea [autoResize]="true" placeholder="Describe the sample work"></textarea>
+                                            <div class="errorMessage" *ngIf="irFormSampleWorkFormDescription(i)?.errors?.required && irFormSampleWorkFormDescription(i).touched">
+                                                <span>Description is required</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="ui-g-12">
+                                            <button pButton icon="fa fa-trash" label="Delete Work" class="ui-button-rounded ui-button-danger pull-right"
+                                                (click)="deleteSampleWorkForm(i)"></button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="ui-g">
+                                        <div class="ui-g-12">
+                                            <button pButton type="button" icon="fa fa-plus" label="Add Work" class="ui-button-rounded ui-button-success"
+                                                (click)="addNewSampleWorkForm()" *ngIf="irFormSampleWork.length < 5"></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ui-g-12">
+                            <hr />
+                        </div>
+
+                        <div class="ui-g-12">
+                            <button pButton type="button" icon="fa fa-check" label="Done" class="ui-button-primary pull-right" iconPos="right"
+                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid"></button>
+
+                            <button pButton type="button" icon="fa fa-refresh" label="Reset" class="ui-button-secondary pull-right"
+                                style="margin-right: 10px" (click)="resetInternReportForm()"></button>
                         </div>
 
                     </div>
@@ -195,6 +306,5 @@ Also, you can describe what might have been done differently if the same interns
         </div>
 
     </div>
-
 
 </div>

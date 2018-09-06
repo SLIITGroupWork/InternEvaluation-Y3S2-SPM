@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/primeng';
 import { FormGroup, FormControl, FormArray, AbstractControl, Validators } from '@angular/forms';
+import { InternReportValidator } from './intern-report.validator';
+import { InternReportVM } from '../../shared';
 
 @Component({
     selector: 'intern-report',
@@ -34,7 +36,7 @@ export class InternReportComponent implements OnInit {
             measurableOutcome: new FormControl('', Validators.required),
             effectivenessEffort: new FormControl('', Validators.required)
         }),
-        sampleWork: new FormArray([])
+        sampleWork: new FormArray([this.internReportFormSampleWorkForm(), this.internReportFormSampleWorkForm()], InternReportValidator.sampleWorkMinLength)
     });
 
     constructor() { }
@@ -53,8 +55,8 @@ export class InternReportComponent implements OnInit {
         return this.internReportForm.get('learningOutcome');
     }
 
-    public get irFormSampleWork(): AbstractControl {
-        return this.internReportForm.get('sampleWork');
+    public get irFormSampleWork(): FormArray {
+        return this.internReportForm.get('sampleWork') as FormArray;
     }
 
     //#endregion
@@ -108,9 +110,9 @@ export class InternReportComponent implements OnInit {
     //#endregion
 
     ngOnInit() {
-    }    
+    }
 
-    //#region internReportForm's Method
+    //#region internReportForm's glossary group
 
     public internReportFormIntroductionGlossaryForm(): FormGroup {
         return new FormGroup({
@@ -119,6 +121,43 @@ export class InternReportComponent implements OnInit {
         });
     }
 
+    public irFormIntroductionGlossaryArrayFormByIndex(index: number): AbstractControl {
+        return this.irFormIntroductionGlossary.at(index);
+    }
+
+    public irFormIntroductionGlossaryDescriptionArrayFormByIndex(index: number): AbstractControl {
+        let formGroup = this.irFormIntroductionGlossaryArrayFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('description');
+        }
+
+        return null;
+    }
+
+    public irFormIntroductionGlossaryAbbreviationArrayFormByIndex(index: number): AbstractControl {
+        let formGroup = this.irFormIntroductionGlossaryArrayFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('abbreviation');
+        }
+
+        return null;
+    }
+
+    public addNewGlossaryForm(): void {
+        this.irFormIntroductionGlossary.push(this.internReportFormIntroductionGlossaryForm());
+    }
+
+
+    public deleteGlossaryForm(formIndex: number): void {
+        this.irFormIntroductionGlossary.removeAt(formIndex);
+    }
+
+    //#endregion
+
+    //#region internReportForm's SampleWork Form Array Method    
+
     public internReportFormSampleWorkForm(): FormGroup {
         return new FormGroup({
             title: new FormControl('', Validators.required),
@@ -126,13 +165,112 @@ export class InternReportComponent implements OnInit {
         });
     }
 
-    //#endregion
-
-    public addNewGlossaryForm(): void {
-        this.irFormIntroductionGlossary.push(this.internReportFormIntroductionGlossaryForm());
+    public irFormSampleWorkFormByIndex(index: number): AbstractControl {
+        return this.irFormSampleWork.at(index);
     }
 
-    public deleteGlossaryForm(formIndex: number): void {
-        this.irFormIntroductionGlossary.removeAt(formIndex);
+    public irFormSampleWorkFormTitle(index: number): AbstractControl {
+        let formGroup = this.irFormSampleWorkFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('title');
+        }
+
+        return null;
+    }
+
+    public irFormSampleWorkFormDescription(index: number): AbstractControl {
+        let formGroup = this.irFormSampleWorkFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('description');
+        }
+
+        return null;
+    }
+
+    public addNewSampleWorkForm(): void {
+        if (this.irFormSampleWork.length < 5) {
+            this.irFormSampleWork.push(this.internReportFormSampleWorkForm())
+        }
+    }
+
+    public deleteSampleWorkForm(index: number): void {
+        this.irFormSampleWork.removeAt(index);
+    }
+
+    //#endregion
+
+    public onPreviousClick(): void {
+        if (this.activeIndex > 0) {
+            this.activeIndex--;
+        }
+    }
+
+    public onNextClick(): void {
+        if (this.activeIndex < 3) {
+            this.activeIndex++;
+        }
+        else {
+            this.onCompleteClick();
+        }
+    }
+
+    public resetInternReportForm(): void {
+
+        while (this.irFormIntroductionGlossary.length > 0) {
+            this.deleteGlossaryForm(0);
+        }
+
+        while (this.irFormSampleWork.length > 0) {
+            this.deleteSampleWorkForm(0);
+        }
+
+        this.addNewSampleWorkForm();
+        this.addNewSampleWorkForm();
+
+        this.internReportForm.reset();
+        this.activeIndex = 0;
+    }
+
+    public onCompleteClick(): void {
+        if (this.internReportForm.valid) {
+            let request: InternReportVM = {
+                introduction: {
+                    companyOverview: this.irFormIntroductionCompanyOverview.value,
+                    projectOverview: this.irFormIntroductionProjectOverview.value,
+                    glossary: []
+                },
+                internshipInsight: {
+                    objectives: this.irFormInternshipInsightObjectives.value,
+                    methodology: this.irFormInternshipInsightMethodology.value,
+                    procedures: this.irFormInternshipInsightProcedures.value
+                },
+                learningOutcome: {
+                    learning: this.irFormLearningOutcomeLearning.value,
+                    measurableOutcome: this.irFormLearningOutcomeMeasurableOutcome.value,
+                    effectivenessEffort: this.irFormLearningOutcomeEffectivenessEffort.value
+                },
+                sampleWork: []
+            };
+
+            for (let ind = 0, len = this.irFormIntroductionGlossary.length; ind < len; ind++) {
+                request.introduction.glossary.push({
+                    abbreviation: this.irFormIntroductionGlossaryAbbreviationArrayFormByIndex(ind).value,
+                    description: this.irFormIntroductionGlossaryDescriptionArrayFormByIndex(ind).value
+                });
+            }
+
+            for (let ind = 0, len = this.irFormSampleWork.length; ind < len; ind++) {
+                request.sampleWork.push({
+                    title: this.irFormSampleWorkFormTitle(ind).value,
+                    description: this.irFormSampleWorkFormDescription(ind).value
+                });
+            }
+
+            console.log(request);
+
+            this.resetInternReportForm();
+        }
     }
 }
