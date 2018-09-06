@@ -1,0 +1,112 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+            <div class="form-container">
+              <div class="form-rows-cols">
+                <h2 style="margin-left: 5px">Faculty Of Computing</h1><br>
+                <h1 style="margin-left: 5px"><strong>Form I-3</strong></h1>
+                <h2>INTERN'S DAILY DIARY</h2>
+                  <label>(To be filled by the Intern -Please ensure to email dully filled form after the completion of the internship )</label>
+                  <label><h3>Intern's Information</h3></label>
+        
+                  <label>Intern's Name 
+                  <input type="text" formControlName="name">
+                  </label>
+        
+                  <label>Student ID 
+                    <input type="text" formControlName="stID">
+                  </label><br><br><br>
+    
+                  <label>Intern's Private Address
+                        <input type="text" formControlName="iAddress">
+                  </label><br><br><br>
+    
+                  <label>Contact Number
+                      <input type="text" formControlName="iContactNumber">
+                  </label><br><br><br>
+    
+                  <label>Email Address
+                      <input type="text" formControlName="iEmail">
+                  </label><br><br><br>
+    
+                  <label>*Use comma (,) to seperate multiple e-mail address providing both company email and personal e-mail</label><br>
+    
+                  <label><h3>Internship Information</h3></label><br>
+    
+                  <label>Internship Title
+                      <input type="text" formControlName="iTitle">
+                  </label>
+    
+                  <label>Specialisation
+                      <input type="text" formControlName="iSpecialisation">
+                  </label><br><br><br>
+                  
+                  <label>Overall Internship Period From
+                      <input type="date" formControlName="iPFrom">
+                </label>
+    
+                <label>Period To
+                    <input type="date" formControlName="iPTo">
+                </label><br><br><br>
+    
+                <label>(To be filled by the intern)</label>
+              
+              <table>
+                <tr>
+                  <th>Internal Training Information</th>
+                </tr>
+                <tr>
+                  <th>Training Party</th>
+                  <th>Training Description</th>
+                  <th>From</th>
+                  <th>To</th>
+                </tr>
+              </table>
+    
+              <br><br><br><br>
+    
+              <label>To be attesed by the external supervisor</label><br>
+    
+              <label>External Supervisor Name
+                  <input type="text" formControlName="eSupName">
+              </label>
+    
+              <label>Date
+                  <input type="date" formControlName="eSDate">
+              </label><br><br><br>
+    
+              <label>(To be filled by the intern)</label><br>
+              <label>Summary of the key tasks completed for the Month </label><br><br>
+              <textarea formControlName="SumTsk"  rows="5" cols="70"></textarea><br><br><br>
+    
+              <label>
+                Details And Notes of work carried out, Problems encountered and how they are solved.<br>
+                Sketches and Dimensions to be given wherever possible.
+              </label><br><br>
+              <textarea formControlName="AdditionalNote" rows="5" cols="70"></textarea><br>
+              <label>
+                  <input type="checkbox" name="icertification" formControlName="icertification" value="1"> I certify that above information is correct and genuine work of mine.
+              </label><br><br><br>
+    
+              <label>To be filled by the External supervisor where supervisors should review work once a month</label><br><br><br>
+              
+              <label>Remarks and Certification by the external supervisor</label>
+
+              <label>
+                  <input type="checkbox" name="Scertification" formControlName="Scertification" value="1"> I certify that I have reviwed and confirmed. </label><br><br><br>
+    
+              <button type="button" class="btn btn-success" [disabled]="!rForm.valid">Submit</button>
+               
+              </div>
+            </div>
+          </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
