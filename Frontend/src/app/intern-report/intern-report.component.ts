@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem, MessageService } from 'primeng/primeng';
 import { FormGroup, FormControl, FormArray, AbstractControl, Validators } from '@angular/forms';
 import { InternReportValidator } from './intern-report.validator';
-import { InternReportVM } from '../../shared';
+import { InternReportVM, InternReportRequest } from '../../shared';
+import { InternReportService } from '../../shared/services/inter-report.service';
 
 @Component({
     selector: 'intern-report',
@@ -39,7 +40,10 @@ export class InternReportComponent implements OnInit {
         sampleWork: new FormArray([this.internReportFormSampleWorkForm(), this.internReportFormSampleWorkForm()], InternReportValidator.sampleWorkMinLength)
     });
 
-    constructor() { }
+    constructor(
+        private apiService: InternReportService,
+        private msgService: MessageService
+    ) { }
 
     //#region internReportForm's AbstractControls
 
@@ -233,9 +237,9 @@ export class InternReportComponent implements OnInit {
         this.activeIndex = 0;
     }
 
-    public onCompleteClick(): void {
+    public async onCompleteClick(): Promise<void> {
         if (this.internReportForm.valid) {
-            let request: InternReportVM = {
+            let internReport: InternReportVM = {
                 introduction: {
                     companyOverview: this.irFormIntroductionCompanyOverview.value,
                     projectOverview: this.irFormIntroductionProjectOverview.value,
@@ -255,22 +259,34 @@ export class InternReportComponent implements OnInit {
             };
 
             for (let ind = 0, len = this.irFormIntroductionGlossary.length; ind < len; ind++) {
-                request.introduction.glossary.push({
+                internReport.introduction.glossary.push({
                     abbreviation: this.irFormIntroductionGlossaryAbbreviationArrayFormByIndex(ind).value,
                     description: this.irFormIntroductionGlossaryDescriptionArrayFormByIndex(ind).value
                 });
             }
 
             for (let ind = 0, len = this.irFormSampleWork.length; ind < len; ind++) {
-                request.sampleWork.push({
+                internReport.sampleWork.push({
                     title: this.irFormSampleWorkFormTitle(ind).value,
                     description: this.irFormSampleWorkFormDescription(ind).value
                 });
             }
 
-            console.log(request);
+            let internReportRequest: InternReportRequest = {
+                internReport: internReport
+            };
 
-            this.resetInternReportForm();
+            this.internReportForm.disable();
+            let response = await this.apiService.submitInternReport(internReportRequest)
+            this.internReportForm.enable();
+            
+            if (response.isSuccess) {
+                this.msgService.add({ severity: 'success', summary: 'Successfully Posted', detail: 'Inern Report successfully posted' });
+                this.resetInternReportForm();
+            }
+            else {
+                this.msgService.add({ severity: 'error', summary: 'Failed to post', detail: 'Something went wrong' });
+            }
         }
     }
 }

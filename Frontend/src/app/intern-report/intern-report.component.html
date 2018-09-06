@@ -12,7 +12,7 @@
 
                 <button pButton type="button" icon="{{ (activeIndex < 3) ? 'fa fa-arrow-right' : 'fa fa-check' }}" label="{{ (activeIndex < 3) ? 'Next' : 'Done' }}" 
                     class="pull-right" [ngClass]="{ 'ui-button-success': (activeIndex < 3), 'ui-button-primary': (activeIndex == 3) }" iconPos="right"
-                    (click)="onNextClick()" [disabled]="activeIndex == 3 && internReportForm.invalid"></button>
+                    (click)="onNextClick()" [disabled]="activeIndex == 3 && (internReportForm.invalid || internReportForm.disabled)"></button>
             </div>
 
             <div class="ui-g-12">
@@ -291,7 +291,7 @@ Also, you can describe what might have been done differently if the same interns
 
                         <div class="ui-g-12">
                             <button pButton type="button" icon="fa fa-check" label="Done" class="ui-button-primary pull-right" iconPos="right"
-                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid"></button>
+                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid || internReportForm.disabled"></button>
 
                             <button pButton type="button" icon="fa fa-refresh" label="Reset" class="ui-button-secondary pull-right"
                                 style="margin-right: 10px" (click)="resetInternReportForm()"></button>
