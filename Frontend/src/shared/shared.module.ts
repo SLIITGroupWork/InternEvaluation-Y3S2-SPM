@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrimeNgModule } from './prime-ng.module';;
 import { MessageService } from 'primeng/api';
 import { BaseApiService } from './services';
+import { InternReportService } from './services/inter-report.service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -17,7 +20,8 @@ import { BaseApiService } from './services';
         HttpModule,
         RouterModule,
         PrimeNgModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule
     ],
     exports: [
         CommonModule,
@@ -38,7 +42,8 @@ export class SharedModule {
             ngModule: SharedModule,
             providers: [
                 MessageService,
-                BaseApiService
+                BaseApiService,
+                InternReportService
             ]
         };
     }
