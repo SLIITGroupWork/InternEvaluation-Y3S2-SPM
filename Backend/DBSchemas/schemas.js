@@ -74,6 +74,46 @@ const ActivityDummy = new Schema({
    }
 });
 
+//Form-I Student Schema
+const Student = new Schema({
+    studentID:{
+        type:String,
+        required:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    homePhone:{
+        type:String,
+        required:true
+    },
+    mobilePhone:{
+        type: String,
+        required: true
+    },
+    email: [{type: String}],
+    semester: {
+        type: Number,
+        required: true
+    },
+    year:{
+        type: Number,
+        required: true
+    },
+    cgpa:{
+        type: Number,
+        required: true
+    }
+
+});
+
+
+
 Mongoose.model('Book', Books);
 Mongoose.model('Author', Author);
 Mongoose.model('User',User);
