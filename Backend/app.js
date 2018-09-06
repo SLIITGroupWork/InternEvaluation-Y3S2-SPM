@@ -4,7 +4,7 @@ const BodyParser = require('body-parser');
 const Cors = require('cors');
 const UserRouter = require('./routes');
 
-const PORT = 8000;
+const PORT = 5556;
 
 App.use(BodyParser.json());
 App.use(Cors());
