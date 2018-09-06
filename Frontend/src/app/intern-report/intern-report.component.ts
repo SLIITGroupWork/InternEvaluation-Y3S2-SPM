@@ -34,7 +34,7 @@ export class InternReportComponent implements OnInit {
             measurableOutcome: new FormControl('', Validators.required),
             effectivenessEffort: new FormControl('', Validators.required)
         }),
-        sampleWork: new FormArray([])
+        sampleWork: new FormArray([this.internReportFormSampleWorkForm(), this.internReportFormSampleWorkForm()])
     });
 
     constructor() { }
@@ -108,9 +108,9 @@ export class InternReportComponent implements OnInit {
     //#endregion
 
     ngOnInit() {
-    }    
+    }
 
-    //#region internReportForm's Method
+    //#region internReportForm's glossary group
 
     public internReportFormIntroductionGlossaryForm(): FormGroup {
         return new FormGroup({
@@ -118,6 +118,45 @@ export class InternReportComponent implements OnInit {
             description: new FormControl('', Validators.required)
         });
     }
+
+    public irFormIntroductionGlossaryArrayFormByIndex(index: number): AbstractControl {
+        return this.irFormIntroductionGlossary.at(index);
+    }
+
+    public irFormIntroductionGlossaryAbbreviationArrayFormByIndex(index: number): AbstractControl {
+        let formGroup = this.irFormIntroductionGlossaryArrayFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('abbreviation');
+        }
+
+        return null;
+    }
+    
+    public irFormIntroductionGlossaryDescriptionArrayFormByIndex(index: number): AbstractControl {
+        let formGroup = this.irFormIntroductionGlossaryArrayFormByIndex(index);
+
+        if (formGroup) {
+            return formGroup.get('description');
+        }
+
+        return null;
+    }
+    
+    public addNewGlossaryForm(): void {
+        this.irFormIntroductionGlossary.push(this.internReportFormIntroductionGlossaryForm());
+    }
+
+    
+    public deleteGlossaryForm(formIndex: number): void {
+        this.irFormIntroductionGlossary.removeAt(formIndex);
+    }
+
+    //#endregion
+
+    //#region internReportForm's Method
+
+    
 
     public internReportFormSampleWorkForm(): FormGroup {
         return new FormGroup({
@@ -127,12 +166,4 @@ export class InternReportComponent implements OnInit {
     }
 
     //#endregion
-
-    public addNewGlossaryForm(): void {
-        this.irFormIntroductionGlossary.push(this.internReportFormIntroductionGlossaryForm());
-    }
-
-    public deleteGlossaryForm(formIndex: number): void {
-        this.irFormIntroductionGlossary.removeAt(formIndex);
-    }
 }

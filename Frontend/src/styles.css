@@ -50,10 +50,8 @@ textarea.no-resize {
     color: #ff0000;
 }
 
-.text-highlightd{
-    color: #2196f3;
-}
-
-.text-warning {
-    color: #ff0000;
+.errorMessage {
+    font-size: 0.9em;
+    color: #ea0000;
+    padding-top: 2px;
 }
