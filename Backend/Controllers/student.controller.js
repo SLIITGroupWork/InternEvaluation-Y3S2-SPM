@@ -45,7 +45,7 @@ const StudentController  = function () {
 
     this.search = (id) => {
         return new Promise((resolve, reject) => {
-            StudentSchema.find({_id: id}).populate('Student').exec().then(data => {
+            StudentSchema.find({studentID: id}).populate('Student').exec().then(data => {
                 resolve({status: 200, data: data});
             }).catch(err => {
                 reject({status: 500, message: "Error:- " + err});
