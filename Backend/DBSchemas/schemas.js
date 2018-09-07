@@ -113,7 +113,7 @@ const Student = new Schema({
 });
 
 
-
+Mongoose.model('Student',Student);
 Mongoose.model('Book', Books);
 Mongoose.model('Author', Author);
 Mongoose.model('User',User);
