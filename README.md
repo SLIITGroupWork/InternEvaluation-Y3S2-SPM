@@ -1,5 +1,5 @@
 # Unnamed-Y2S2-SPM
-[![Build Status](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM.svg?branch=user-story%2F%23532)](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM)
+[![Build Status](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM.svg?branch=qa)](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
