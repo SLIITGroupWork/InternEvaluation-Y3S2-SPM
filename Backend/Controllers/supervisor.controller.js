@@ -23,9 +23,9 @@ let supervisorController = function () {
             transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
                     console.log(error);
-                    reject({status:500,message:error,isSuceeded:false});
+                    reject({status:500,message:error,isSuccess:false});
                 } else {
-                    resolve({status:200,message:"Message sent :" + info.response,isSuceeded:true});
+                    resolve({status:200,message:"Message sent :" + info.response,isSuccess:true});
                 }
             });
         })
@@ -33,9 +33,9 @@ let supervisorController = function () {
     this.getDummyActivity = function (studentID) {
         return new Promise(function (resolve,reject) {
             activitySchema.find({studentID:studentID}).exec().then(function (item) {
-                resolve({status:200,data:item,isSuceeded:true});
+                resolve({status:200,data:item,isSuccess:true});
             }).catch(function (error) {
-                reject({status:500,error:"error occured in server",isSuceeded:false});
+                reject({status:500,error:"error occured in server",isSuccess:false});
             })
         })
     },
@@ -51,9 +51,9 @@ let supervisorController = function () {
             )
 
             activity.save().then(function () {
-                resolve({status:200,message:"Object added successfully",isSuceeded:true});
+                resolve({status:200,message:"Object added successfully",isSuccess:true});
             }).catch(function (error) {
-                reject({status:500,message:error,isSuceeded:false});
+                reject({status:500,message:error,isSuccess:false});
             })
         });
     }

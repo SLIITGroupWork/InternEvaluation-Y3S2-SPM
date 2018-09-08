@@ -4,25 +4,25 @@ const Controller = require('../Controllers/supervisor.controller');
 
 Router.post('/',function (req,res) {
     Controller.sendMail(req.body).then(function (response) {
-        res.status(response.status).send(JSON.stringify({message:response.message,isSucess:response.isSuceeded}));
+        res.status(response.status).send(JSON.stringify({message:response.message,isSucess:response.isSuccess}));
     }).catch(function (error) {
-        res.status(error.status).send(JSON.stringify({error:error.message,isSuccess:response.isSuceeded}));
+        res.status(error.status).send(JSON.stringify({error:error.message,isSuccess:response.isSuccess}));
     })
 })
 
 Router.get('/:studentID',function (req,res) {
     Controller.getDummyActivity(req.params.studentID).then(function (response) {
-        res.status(response.status).send(JSON.stringify({data:response.data,isSuccess:response.isSuceeded}));
+        res.status(response.status).send(JSON.stringify({data:response.data,isSuccess:response.isSuccess}));
     }).catch(function (error) {
-        res.status(error.status).send(JSON.stringify({error:error.error,isSuccess:error.isSuceeded}));
+        res.status(error.status).send(JSON.stringify({error:error.error,isSuccess:error.isSuccess}));
     })
 })
 
 Router.post('/activityDummy/',function (req,res) {
     Controller.saveDummyActivity(req.body).then(function (response) {
-        res.status(response.status).send(JSON.stringify({message:response.message,isSuccess:response.isSuceeded}));
+        res.status(response.status).send(JSON.stringify({message:response.message,isSuccess:response.isSuccess}));
     }).catch(function (error) {
-        res.status(error.status).send(JSON.stringify({message:error.message,isSuccess:error.isSuceeded}));
+        res.status(error.status).send(JSON.stringify({message:error.message,isSuccess:error.isSuccess}));
     })
 })
 
