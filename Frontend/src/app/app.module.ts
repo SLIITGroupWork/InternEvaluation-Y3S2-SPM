@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { InternReportComponent } from './intern-report/intern-report.component';
 import { RouterModule } from '@angular/router';
 
+import {FormI3Component } from './form-i3/form-i3.component';//new
+
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
         path: '**',
@@ -15,7 +17,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 @NgModule({
     declarations: [
         AppComponent,
-        InternReportComponent
+        InternReportComponent,
+        FormI3Component//new
     ],
     imports: [
         routings,
