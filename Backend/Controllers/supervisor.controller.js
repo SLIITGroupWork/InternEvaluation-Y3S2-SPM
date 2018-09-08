@@ -23,9 +23,9 @@ let supervisorController = function () {
             transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
                     console.log(error);
-                    reject({status:500,message:error});
+                    reject({status:500,message:error,isSuccess:false});
                 } else {
-                    resolve({status:200,message:"Message sent :" + info.response});
+                    resolve({status:200,message:"Message sent :" + info.response,isSuccess:true});
                 }
             });
         })
