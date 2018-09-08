@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { SharedModule } from '../shared/shared.module';
 import { InternReportComponent } from './intern-report/intern-report.component';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { SsignupComponent } from './ssignup/ssignup.component';
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -15,7 +18,10 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 @NgModule({
     declarations: [
         AppComponent,
-        InternReportComponent
+        InternReportComponent,
+        LoginComponent,
+        SignupComponent,
+        SsignupComponent
     ],
     imports: [
         routings,
