@@ -27,6 +27,7 @@
 
                 <form [formGroup]="internReportForm">
 
+                    <!-- Page 1 - Introduction -->
                     <div class="ui-g" *ngSwitchCase="0" formGroupName="introduction">
 
                         <div class="ui-g-12">
@@ -130,6 +131,7 @@
 
                     </div>
 
+                    <!-- Page 2 - Internship Insight -->
                     <div class="ui-g" *ngSwitchCase="1" formGroupName="internshipInsight">
 
                         <div class="ui-g-12">
@@ -179,6 +181,7 @@
 
                     </div>
 
+                    <!-- Page 3 - Learning Outcome -->
                     <div class="ui-g" *ngSwitchCase="2" formGroupName="learningOutcome">
 
                         <div class="ui-g-12">
@@ -230,6 +233,7 @@ Also, you can describe what might have been done differently if the same interns
 
                     </div>
 
+                    <!-- Page 4 - Sample Works -->
                     <div class="ui-g" *ngSwitchCase="3" formGroupName="sampleWork">
 
                         <div class="ui-g-12">
