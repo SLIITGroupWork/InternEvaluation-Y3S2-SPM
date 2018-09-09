@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
 import { Router } from '../../../node_modules/@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-signup',

@@ -1,3 +1,54 @@
-<p>
-  ssignup works!
-</p>
+<div class="login-container">
+  <form action="" class="form-login">
+      <ul class="login-nav">
+          <li class="login-nav__item ">
+              <a href="#" (click)="navigate2()" [routerLink]="['/']">Sign In</a>
+          </li>
+          <li class="login-nav__item active">
+              <a href="#"(click)="navigate4()" [routerLink]="['/signup']" >Sign Up </a>
+          </li>
+          <li class="login-nav__item active">
+            <a href="#" >Sign Up For Student</a>
+        </li>
+      </ul>
+      
+      <label for="login-input-name" class="login__label">
+          Student Name:
+      </label>
+      <input formControlName="login-input-student_name" class="login__input" type="text" />
+      <label for="login-input-regNo" class="login__label">
+          Student Registration No:
+      </label>
+      <input formControlName="login-input-regNo" class="login__input" type="text" />
+      <label for="login-input-degree" class="login__label">
+         Degree Programme:
+      </label>
+      <input formControlName="login-input-degreePro" class="login__input" type="text" />
+      <label for="login-input-org" class="login__label">
+         Organization Name:
+      </label>
+      <input formControlName="login-input-orgName" class="login__input" type="text" />
+      <label for="login-input-dept" class="login__label">
+         Department:
+      </label>
+      <input formControlName="login-input-deptName" class="login__input" type="text" />
+      <label for="login-input-designation" class="login__label">
+         Designation:
+      </label>
+      <input formControlName="login-input-designation_intern" class="login__input" type="text" />
+      <label for="login-input-months" class="login__label">
+         Internship Period in Months:
+      </label>
+      <input formControlName="login-input-noOfMonths" class="login__input" type="text" />
+      <label for="login-input-start" class="login__label">
+        Internship Start Date:
+      </label>
+      <input formControlName="login-input-startDate" class="login__input" type="date" />
+      <label for="login-input-finish" class="login__label">
+        Internship Finish Date:
+      </label>
+      <input formControlName="login-input-finishDate" class="login__input" type="date" />
+
+      <button class="login__submit" disabled>Submit</button>
+  </form>
+</div>

@@ -1,31 +1,34 @@
 <div class="login-container">
-  <form action="" class="form-login">
-      <ul class="login-nav">
-          <li class="login-nav__item ">
-              <a href="#" (click)="navigate1()" [routerLink]="['/']">Sign In</a>
-          </li>
-          <li class="login-nav__item active">
-              <a href="#" >Sign Up</a>
-          </li>
-      </ul>
-      
-      <label for="login-input-user" class="login__label">
-          Username
-      </label>
-      <input formControlName="login-input-user_name" class="login__input" type="text" />
-      <label for="login-input-password" class="login__label">
-          Password
-      </label>
-      <input formControlName="login-input-password" class="login__input" type="password" />
-      <label for="login-input-password" class="login__label">
-         Confirm Password
-      </label>
-      <input formControlName="login-input-password_confirm" class="login__input" type="password" />
-      <label for="login-sign-up" class="login__label--checkbox">
-          <input formControlName="login-sign-up" type="checkbox" class="login__input--checkbox" />
-          Keep me Signed in
-      </label>
-      <button class="login__submit" disabled>Sign Up</button>
-  </form>
-  <a href="#" class="login__forgot">Forgot Password?</a>
+    <form action="" class="form-login">
+        <ul class="login-nav">
+            <li class="login-nav__item ">
+                <a href="#" (click)="navigate1()" [routerLink]="['/']">Sign In</a>
+            </li>
+            <li class="login-nav__item active">
+                <a href="#" >Sign Up</a>
+            </li>
+            <li class="login-nav__item ">
+                <a href="#" (click)="navigate3()" [routerLink]="['/ssignup']">Sign Up For Student</a>
+            </li>
+        </ul>
+        
+        <label for="login-input-user" class="login__label">
+            Username
+        </label>
+        <input formControlName="login-input-user_name" class="login__input" type="text" />
+        <label for="login-input-password" class="login__label">
+            Password
+        </label>
+        <input formControlName="login-input-password" class="login__input" type="password" />
+        <label for="login-input-password" class="login__label">
+           Confirm Password
+        </label>
+        <input formControlName="login-input-password_confirm" class="login__input" type="password" />
+        <label for="login-sign-up" class="login__label--checkbox">
+            <input id="login-sign-up" type="checkbox" class="login__input--checkbox" />
+            Keep me Signed in
+        </label>
+        <button class="login__submit" disabled>Sign Up</button>
+    </form>
+    <!-- <a href="#" class="login__forgot">Forgot Password?</a> -->
 </div>

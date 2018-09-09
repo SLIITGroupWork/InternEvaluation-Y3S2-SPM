@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SsignupComponent } from './ssignup/ssignup.component';
+import { AssignSupervisorComponent } from './assign-supervisor/assign-supervisor.component';
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -21,7 +22,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         InternReportComponent,
         LoginComponent,
         SignupComponent,
-        SsignupComponent
+        SsignupComponent,
+        AssignSupervisorComponent
     ],
     imports: [
         routings,
