@@ -15,6 +15,10 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component: InternReportComponent
     },
     {
+        path: 'dashboard/form-5',
+        component: Form5Component
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent,
         pathMatch: 'full'

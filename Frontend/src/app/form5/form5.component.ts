@@ -25,6 +25,12 @@ export class Form5Component implements OnInit {
       'employersName':[null,Validators.required],
       'supervisorName':[null,Validators.required],
       'description':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description1':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description2':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description3':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description4':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description5':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
+      'description6':[null,Validators.compose([Validators.required,Validators.maxLength(100),Validators.minLength(1)])],
       'validate':''
      });
    }
