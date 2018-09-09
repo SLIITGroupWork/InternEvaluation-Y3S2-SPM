@@ -16,6 +16,7 @@ export class FormI3Component  {
   description:string='';
   name:string='';
   stID:string='';
+  titleAlert:string='This field is required';
 
   //Supervisor Fields
   eSupEmail:string='';
@@ -26,8 +27,9 @@ export class FormI3Component  {
       'stID':[null,Validators.required],
    // 'description':[null,Validators.compose([Validators.required,Validators.minLength(30),Validators.maxLength(100)]) ],
       'iAddress':[null,Validators.required],
-      'iContactNumber':[null,Validators.required],
+      'iContactNumber':[null,Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])],
       'iEmail':[null,Validators.required],
+      
 
       //Supervisor Details validatons declations
       'eSupEmail':[null,Validators.required],
