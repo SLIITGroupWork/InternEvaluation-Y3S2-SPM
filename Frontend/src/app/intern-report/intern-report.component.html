@@ -2,7 +2,12 @@
 
     <div class="ui-g-12">
 
-        <h2>Internship Report - Form I-6</h2>
+        <div class="ui-g">
+            <div class="ui-g-12 ui-g-nopad">
+                <button routerLink="/dashboard" pButton type="button" icon="fa fa-arrow-left" label="Dashboard" class="ui-button-secondary"></button>
+                <h2>Internship Report - Form I-6</h2>
+            </div>
+        </div>
 
         <div class="ui-g">
 
@@ -12,7 +17,7 @@
 
                 <button pButton type="button" icon="{{ (activeIndex < 3) ? 'fa fa-arrow-right' : 'fa fa-check' }}" label="{{ (activeIndex < 3) ? 'Next' : 'Done' }}" 
                     class="pull-right" [ngClass]="{ 'ui-button-success': (activeIndex < 3), 'ui-button-primary': (activeIndex == 3) }" iconPos="right"
-                    (click)="onNextClick()" [disabled]="activeIndex == 3 && internReportForm.invalid"></button>
+                    (click)="onNextClick()" [disabled]="activeIndex == 3 && (internReportForm.invalid || internReportForm.disabled)"></button>
             </div>
 
             <div class="ui-g-12">
@@ -27,6 +32,7 @@
 
                 <form [formGroup]="internReportForm">
 
+                    <!-- Page 1 - Introduction -->
                     <div class="ui-g" *ngSwitchCase="0" formGroupName="introduction">
 
                         <div class="ui-g-12">
@@ -130,6 +136,7 @@
 
                     </div>
 
+                    <!-- Page 2 - Internship Insight -->
                     <div class="ui-g" *ngSwitchCase="1" formGroupName="internshipInsight">
 
                         <div class="ui-g-12">
@@ -179,6 +186,7 @@
 
                     </div>
 
+                    <!-- Page 3 - Learning Outcome -->
                     <div class="ui-g" *ngSwitchCase="2" formGroupName="learningOutcome">
 
                         <div class="ui-g-12">
@@ -230,6 +238,7 @@ Also, you can describe what might have been done differently if the same interns
 
                     </div>
 
+                    <!-- Page 4 - Sample Works -->
                     <div class="ui-g" *ngSwitchCase="3" formGroupName="sampleWork">
 
                         <div class="ui-g-12">
@@ -291,7 +300,7 @@ Also, you can describe what might have been done differently if the same interns
 
                         <div class="ui-g-12">
                             <button pButton type="button" icon="fa fa-check" label="Done" class="ui-button-primary pull-right" iconPos="right"
-                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid"></button>
+                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid || internReportForm.disabled"></button>
 
                             <button pButton type="button" icon="fa fa-refresh" label="Reset" class="ui-button-secondary pull-right"
                                 style="margin-right: 10px" (click)="resetInternReportForm()"></button>
@@ -306,5 +315,6 @@ Also, you can describe what might have been done differently if the same interns
         </div>
 
     </div>
+
 
 </div>

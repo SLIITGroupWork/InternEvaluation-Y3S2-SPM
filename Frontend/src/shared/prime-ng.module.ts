@@ -5,7 +5,7 @@ import {
     InputTextModule, ButtonModule, DataTableModule, AccordionModule, SidebarModule, MenuModule, MenuItem, ConfirmDialogModule, ConfirmationService,
     CalendarModule, DialogModule, DropdownModule, CheckboxModule, RadioButtonModule, TabViewModule, MessagesModule, GrowlModule, InputSwitchModule,
     FileUploadModule, InputTextareaModule, PanelMenuModule, AutoCompleteModule, ProgressBarModule, MultiSelectModule, InputMaskModule, CardModule,
-    ScrollPanelModule, TreeModule, TreeTableModule, LightboxModule, KeyFilterModule
+    ScrollPanelModule, TreeModule, TreeTableModule, LightboxModule, KeyFilterModule, MessageService
 } from 'primeng/primeng';
 
 import { StepsModule } from 'primeng/steps';
@@ -49,7 +49,8 @@ import { TableModule } from 'primeng/table';
         StepsModule
     ],
     providers: [
-        ConfirmationService
+        ConfirmationService,
+        MessageService
     ]
 })
 export class PrimeNgModule { }
