@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { Form5Component } from './form5/form5.component';
+import { Form5EmailComponent } from './form5-email/form5-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
@@ -35,6 +36,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 @NgModule({
     declarations: [
         AppComponent,
+        Form5EmailComponent,
         Form5Component,
         DashboardComponent,
         PageNotFoundComponent,
