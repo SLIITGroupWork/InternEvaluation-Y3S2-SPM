@@ -3,7 +3,7 @@
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
-2016 Intake Weekend Batch 3rd Year AF Project
+2016 Intake Weekend Batch 3rd Year SPM Project
 ==============================================
 Web Based Intern Evaluation Project using Angular, Express and Mongo DB
 
