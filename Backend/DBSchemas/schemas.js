@@ -74,29 +74,58 @@ const FormI5 = new Schema({
         required:true
     }
 });
-
 const ActivityDummy = new Schema({
-   studentID:{
-       type:String,
-       required:true
-   },
-   activity:{
-       type:String,
-       required:true
-   },
-   from:{
-       type:String,
-       required:true
-   },
-   to:{
-       type:String,
-       required:true
-   }
+    studentID: {
+        type: String,
+        required: true
+    },
+    activity: {
+        type: String,
+        required: true
+    },
+    from: {
+        type: String,
+        required: true
+    },
+    to: {
+        type: String,
+        required: true
+    }
 });
 
-Mongoose.model('User',User);
-Mongoose.model('ActivityDummy',ActivityDummy);
+const internReportSchema = new Schema({
+    studentId: String,
+    introduction: {
+        companyOverview: String,
+        projectOverview: String,
+        glossary: [{
+            abbreviation: String,
+            description: String
+        }]
+    },
+    internshipInsight: {
+        objectives: String,
+        procedures: String,
+        methodology: String
+    },
+    learningOutcome: {
+        learning: String,
+        measurableOutcome: String,
+        effectivenessEffort: String
+    },
+    sampleWork: [{
+        title: String,
+        description: String
+    }]
+});
+
+Mongoose.model('User', User);
+Mongoose.model('ActivityDummy', ActivityDummy);
+
+Mongoose.model('InternReport', internReportSchema);
+
 Mongoose.model('FormI5',FormI5);
+
 Mongoose.connect('mongodb://localhost:27017/internDB', function (err) {
     if (err) {
         console.log(err);
