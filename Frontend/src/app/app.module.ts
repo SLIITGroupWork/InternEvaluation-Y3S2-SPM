@@ -35,7 +35,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 @NgModule({
     declarations: [
         AppComponent,
-        Form5Component
+        Form5Component,
         DashboardComponent,
         PageNotFoundComponent,
         InternReportComponent
