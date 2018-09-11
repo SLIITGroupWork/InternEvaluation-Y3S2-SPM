@@ -10,7 +10,7 @@ App.use(BodyParser.json());
 App.use(Cors());
 App.use('/api',UserRouter);
 
-App.listen(PORT,'localhost',function (err) {
+App.listen(PORT,'localhost',(err) => {
     if(err){
         console.log(err);
         process.exit(-1);

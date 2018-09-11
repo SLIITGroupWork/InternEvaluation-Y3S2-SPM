@@ -126,7 +126,7 @@ Mongoose.model('InternReport', internReportSchema);
 
 Mongoose.model('FormI5',FormI5);
 
-Mongoose.connect('mongodb://localhost:27017/internDB', function (err) {
+Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {
     if (err) {
         console.log(err);
         process.exit(-1);
