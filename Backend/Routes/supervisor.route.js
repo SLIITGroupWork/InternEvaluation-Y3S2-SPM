@@ -2,7 +2,7 @@ const Express = require('express');
 const Router = Express.Router();
 const Controller = require('../Controllers/supervisor.controller');
 
-Router.post('/',function (req,res) {
+Router.post('/',(req,res) => {
     Controller.sendMail(req.body).then(function (response) {
         res.status(response.status).send(JSON.stringify({message:response.message,isSucess:response.isSuccess}));
     }).catch(function (error) {
@@ -10,7 +10,7 @@ Router.post('/',function (req,res) {
     })
 })
 
-Router.get('/:studentID',function (req,res) {
+Router.get('/:studentID',(req,res) => {
     Controller.getDummyActivity(req.params.studentID).then(function (response) {
         res.status(response.status).send(JSON.stringify({data:response.data,isSuccess:response.isSuccess}));
     }).catch(function (error) {
@@ -18,7 +18,7 @@ Router.get('/:studentID',function (req,res) {
     })
 })
 
-Router.post('/activityDummy/',function (req,res) {
+Router.post('/activityDummy/',(req,res) => {
     Controller.saveDummyActivity(req.body).then(function (response) {
         res.status(response.status).send(JSON.stringify({message:response.message,isSuccess:response.isSuccess}));
     }).catch(function (error) {
@@ -26,7 +26,7 @@ Router.post('/activityDummy/',function (req,res) {
     })
 })
 
-Router.post('/sendFormI3/',function (req,res) {
+Router.post('/sendFormI3/',(req,res) => {
     Controller.getDummyActivity(req.body.studentID).then(function (response) {
         var html = "<p>Student ID :" + req.body.studentID + "</p>";
         html += "<table border = 1><tr><th>Activity</th><th>From</th><th>To</th></tr>";

@@ -4,7 +4,7 @@ const activitySchema = mongoose.model('ActivityDummy');
 
 let supervisorController = function () {
     this.sendMail = function (body) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
@@ -20,7 +20,7 @@ let supervisorController = function () {
                 html: body.emailBody
             };
 
-            transporter.sendMail(mailOptions, function(error, info){
+            transporter.sendMail(mailOptions,(error, info) =>{
                 if (error) {
                     console.log(error);
                     reject({status:500,message:error,isSuccess:false});
@@ -30,7 +30,7 @@ let supervisorController = function () {
             });
         })
     },
-    this.getDummyActivity = function (studentID) {
+    this.getDummyActivity = (studentID) => {
         return new Promise(function (resolve,reject) {
             activitySchema.find({studentID:studentID}).exec().then(function (item) {
                 resolve({status:200,data:item,isSuccess:true});
@@ -39,7 +39,7 @@ let supervisorController = function () {
             })
         })
     },
-    this.saveDummyActivity = function (body) {
+    this.saveDummyActivity = (body) => {
         return new Promise(function (resolve, reject) {
             const activity = new activitySchema(
                 {
@@ -50,7 +50,7 @@ let supervisorController = function () {
                 }
             )
 
-            activity.save().then(function () {
+            activity.save().then(() => {
                 resolve({status:200,message:"Object added successfully",isSuccess:true});
             }).catch(function (error) {
                 reject({status:500,message:error,isSuccess:false});
