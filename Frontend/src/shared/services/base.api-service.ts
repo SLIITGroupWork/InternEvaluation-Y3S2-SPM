@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BaseResponse } from "../models";
+import { BaseResponse, BaseRequest } from "../models";
 
 @Injectable()
 export class BaseApiService {
@@ -70,7 +70,7 @@ export class BaseApiService {
      * @param request Request that need to send
      * @returns Return a Promise<Response>
      */
-    public post<Response extends BaseResponse, Request extends BaseResponse>(path: string, request: Request): Promise<Response> {
+    public post<Response extends BaseResponse, Request extends BaseRequest>(path: string, request: Request): Promise<Response> {
 
         return new Promise<Response>((resolve) => {
             this.httpClient.post<Response>(this.baseUrl + path, request, { headers: this.headers }).subscribe(response => {
@@ -92,7 +92,7 @@ export class BaseApiService {
      * @param request Request that need to send
      * @returns Return a Promise<Response>
      */
-    public put<Response extends BaseResponse, Request extends BaseResponse>(path: string, request: Request): Promise<Response> {
+    public put<Response extends BaseResponse, Request extends BaseRequest>(path: string, request: Request): Promise<Response> {
 
         return new Promise<Response>((resolve) => {
             this.httpClient.put<Response>(this.baseUrl + path, request, { headers: this.headers }).subscribe(response => {

@@ -1,0 +1,276 @@
+<div *ngIf="!studentID; else forminfo ">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+        <div class="ui-g-12">
+
+            <div class="ui-g-12 ui-g-nopad">
+                <button routerLink="/dashboard" pButton type="button" icon="fa fa-arrow-left" label="Dashboard" class="ui-button-secondary"></button>
+                <h2 style="color: blueviolet">Form I-5</h2>
+            </div>
+
+            <div style="align-items: center">
+                <h3>Final Evaluation of the Internship Student</h3>
+            </div>
+
+            <div class="form-group">
+                <label for="studentid">Student ID</label>
+                <input type="text" class="form-control" placeholder="Enter the your Student ID" formControlName="studentID">
+            </div>
+            <!-- <div class="alert alert-warning" role="alert" *ngIf="!rForm.controls['studentID'].valid && !rForm.controls['studentID'].touched">
+          <strong>{{titlealert}}</strong>
+      </div> -->
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" class="form-control" placeholder="Enter the Student Name" formControlName="studentName">
+            </div>
+
+            <div class="form-group">
+                <label for="employerName">Employer Name</label>
+                <input type="text" class="form-control" placeholder="Enter the Employer Name" formControlName="employersName">
+            </div>
+
+            <div class="form-group">
+                <label for="supervisorName">Supervisor Name</label>
+                <input type="text" class="form-control" placeholder="Enter the Supervisor Name" formControlName="supervisorName">
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-control" rows="10" formControlName="description"></textarea>
+                <label for="description">Describe the differences, if any, between student's initial contract and
+                    actual assignment which developed</label>
+            </div>
+            <div class="form-group">
+                <label>Performance of Student</label>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Above Average</th>
+                            <th>Average</th>
+                            <th>Below Average</th>
+                            <th>Comments,Examples,Observations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Volume of work</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Quality of work</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Analytical ability</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Ability to resolve problems</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Accuracy and thoroughness</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Ability to work under pressure</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Oral communications</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Written communications</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Original and critical thinking</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Ability to learn</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>Note: Please make sure to tick only one check box for each category</label>
+            </div>
+            <div class="form-group">
+                <label>Work Habits of Student</label>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Above Average</th>
+                            <th>Average</th>
+                            <th>Below Average</th>
+                            <th>Comments,Examples,Observations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Effective in organizing work</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Takes the initiative</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Flexible to non-routine work</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Active and alert</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Attitude toward organization</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Team player</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Diligence and perseverance</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Accepts responsibility</td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td><label><input type="checkbox"></label></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <label>Note: Please make sure to tick only one check box for each category</label>
+            </div>
+            <div class="form-group">
+                <label for="description1">List positive personal characteristics (Business Acumen, Vigor, Adaptability,
+                    Teamwork, Leadership, Confidence, etc.)</label>
+                <textarea class="form-control" rows="10" formControlName="description1"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description2">List personal characteristics that will help the student in his/her
+                    professional development</label>
+                <textarea class="form-control" rows="10" formControlName="description2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description3">How effective has the Internship Program been in meeting the needs of your
+                    organization?</label>
+                <textarea class="form-control" rows="10" formControlName="description3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description4">Please suggest ways you feel we could make our program more meaningful to the
+                    student and you, the employer.</label>
+                <textarea class="form-control" rows="10" formControlName="description4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description5">Please comment on the appropriateness of the student's academic training as
+                    it related to a position in your organization</label>
+                <textarea class="form-control" rows="10" formControlName="description5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description6">Any other comments about the student or on the Faculty Advisor:</label>
+                <textarea class="form-control" rows="10" formControlName="description6"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label>Overall student performance</label>
+                </div>
+                <label><input type="checkbox">Outstanding</label>
+                <label><input type="checkbox">Very Good</label>
+                <label><input type="checkbox">Good</label>
+                <label><input type="checkbox">Marginal</label>
+                <label><input type="checkbox">Unsatisfactory</label>
+                <div class="form-group">
+                    <label>Note: Please make sure to tick only one check box</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="externelsupervisor">External Supervisor’s Name</label>
+                <input type="text" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            <div class="form-group">
+                <label>Note:
+                    Please e-mail this form within two weeks after the date of completion of the 6 month internship
+                    directly to saman.g@sliit.lk by the external supervisor’s official e-mail
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!rForm.valid">Submit</button>
+                <button (click)="navigate()" type="button" class="btn btn-warning" [disabled]="!rForm.valid"
+                    [routerLink]="['form5']">Next</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<ng-template #forminfo>
+    <div class="container">
+        <div class="row columns ">
+            <h1>{{studentID}}</h1>
+
+            <p>{{description}}</p>
+        </div>
+    </div>
+</ng-template>
