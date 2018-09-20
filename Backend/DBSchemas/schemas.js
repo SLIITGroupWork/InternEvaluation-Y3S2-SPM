@@ -93,6 +93,7 @@ const ActivityDummy = new Schema({
     }
 });
 
+
 const internReportSchema = new Schema({
     studentId: String,
     introduction: {
@@ -118,6 +119,9 @@ const internReportSchema = new Schema({
         description: String
     }]
 });
+
+//Defining Supervisor Schema
+
 
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
