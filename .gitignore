@@ -9,15 +9,18 @@ Frontend/out-tsc
 # dependencies
 Frontend/node_modules
 Backend/node_modules
+New-Backend/node_modules
 
 # IDEs and editors
 /.idea
 Frontend/.idea
 Backend/.idea
+New-Backend/.idea
 
 .project
 Frontend/.project
 Backend/.project
+New-Backend/.project
 
 .classpath
 Frontend/.classpath
@@ -48,6 +51,7 @@ Backend/*.sublime-workspace
 
 Frontend/.vscode/*
 Backend/.vscode/*
+New-Backend/.vscode/*
 
 # misc
 Frontend/.sass-cache
@@ -67,3 +71,6 @@ Frontend/.DS_Store
 Backend/.DS_Store
 Frontend/Thumbs.db
 Backend/Thumbs.db
+
+# Temp
+New-Backend/*
