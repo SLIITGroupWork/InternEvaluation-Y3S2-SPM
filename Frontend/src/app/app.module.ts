@@ -8,6 +8,7 @@ import { Form5EmailComponent } from './form5-email/form5-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
+import { Form1SupervisorComponent } from './form1-supervisor/form1-supervisor.component';
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -44,7 +45,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         Form5Component,
         DashboardComponent,
         PageNotFoundComponent,
-        InternReportComponent
+        InternReportComponent,
+        Form1SupervisorComponent
     ],
     imports: [
         routings,
