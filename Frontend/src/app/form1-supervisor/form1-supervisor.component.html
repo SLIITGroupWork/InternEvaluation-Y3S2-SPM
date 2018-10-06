@@ -14,15 +14,16 @@
 
           <!-- Replace with Form-I-Student-Section -->
           <div class="form-group">
-            <label for="studentid">Student ID</label>
+            <label for="studentID">Student ID</label>
             <input type="text" class="form-control" placeholder="Student ID" formControlName="studentID">
           </div>
 
-
           <div class="form-group">
-              <label for="employersName">Employer Name</label>
-              <input type="text" class="form-control" placeholder="Enter the your Employer Name" formControlName="employersName">
+            <label for="employersName">Employer Name</label>
+            <input type="text" class="form-control" placeholder="Enter the your Employer Name" formControlName="employersName">
           </div>
+
+          
           <!-- <div class="alert alert-warning" role="alert" *ngIf="!rForm.controls['studentID'].valid && !rForm.controls['studentID'].touched">
         <strong>{{titlealert}}</strong>
     </div> -->
@@ -84,8 +85,8 @@
 
 
           <div class="form-group">
-              <label for="externalsupervisor">External Supervisor’s Name</label>
-              <input type="text" class="form-control" placeholder="" formControlName="externalsupervisor">
+              <label for="externalSupervisorName">External Supervisor’s Name</label>
+              <input type="text" class="form-control" placeholder="" formControlName="externalSupervisorName">
           </div>
 
 
@@ -101,7 +102,7 @@
               </label>
           </div>
           <div class="form-group">
-              <button type="submit" class="btn btn-primary" [disabled]="!rForm.valid">Submit and Save</button>
+              <button type="submit" class="btn btn-primary" >Submit and Save</button>
               <!-- <button (click)="navigate()" type="button" class="btn btn-warning" [disabled]="!rForm.valid"
                   [routerLink]="['/dashboard/form-5/form-5-email']">Next</button> -->
           </div>

@@ -16,8 +16,8 @@ export class Form1SupervisorComponent implements OnInit {
   post: any;
 
   studentID: string = '';
-  employerName: string = '';
-  employerAddress: string = '';
+  employersName: string = '';
+  employersAddress: string = '';
   supervisorTitle: string = '';
   supervisorName: string = '';
   supervisorPhone: string = '';
@@ -25,7 +25,7 @@ export class Form1SupervisorComponent implements OnInit {
   noHoursWeek: number = 0;
   studentTaskDescription: string = '';
   studentLearnDescription: string = '';
-  externelsupervisor: string = '';
+  externalSupervisorName: string = '';
 
 
   form1SupervisorData = new Form1Supervisor;
@@ -37,15 +37,15 @@ export class Form1SupervisorComponent implements OnInit {
   ) { 
     this.rForm = fb.group({
       'studentID': [null, Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength[1]])],
-      'employerName': [null, Validators.required],
+      'employersName': [null, Validators.required],
       'employersAddress': [null, Validators.required],
       'supervisorName': [null, Validators.required],
       'supervisorTitle': [null, Validators.compose([Validators.required, Validators.maxLength(3), Validators.minLength(1)])],
-      'noHours_Week': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
+      'noHoursWeek': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
       'supervisorPhone':  [null, Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength[1]])],
       'supervisorEmail': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
-      'studentExpectedTask': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
-      'studentExpectedLearn': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
+      'studentTaskDescription': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
+      'studentLearnDescription': [null, Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(1)])],
       'externalSupervisorName':[null, Validators.required],
 
       'validate': ''
@@ -87,13 +87,13 @@ export class Form1SupervisorComponent implements OnInit {
     this.form1SupervisorData.supervisorEmail = post.supervisorEmail;
     this.form1SupervisorData.internshipStartDate = post.internshipStartDate;
     this.form1SupervisorData.internshipEndDate = post.internshipEndDate;
-    this.form1SupervisorData.noHours_Week = post.noHoursWeek;
-    this.form1SupervisorData.studentExpectedTask = post.studentTaskDescription;
-    this.form1SupervisorData.studentExpectedLearn = post.studentLearnDescription;
-    this.form1SupervisorData.externalSupervisorName = post.externalsupervisor;
+    this.form1SupervisorData.noHoursWeek = post.noHoursWeek;
+    this.form1SupervisorData.studentTaskDescription = post.studentTaskDescription;
+    this.form1SupervisorData.studentLearnDescription = post.studentLearnDescription;
+    this.form1SupervisorData.externalSupervisorName = post.externalSupervisorName;
     this.form1SupervisorData.date = post.date;
   
-
+    
     console.log('form data: ', this.form1SupervisorData);
 
     this.api.submmitForm1Supervisor(this.form1SupervisorData).subscribe(res => {
