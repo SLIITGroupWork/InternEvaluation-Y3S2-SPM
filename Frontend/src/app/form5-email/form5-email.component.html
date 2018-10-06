@@ -4,18 +4,22 @@
         <h2 style="color: blueviolet">Form I-5 Email</h2>
       <div class="form-group">
         <label for="studentId">Student ID</label>
-        <input type="text" class="form-control" formControlName="studentId" placeholder="Enter the Student ID">
+        <input type="text" class="form-control" formControlName="studentId" placeholder="Enter the Student ID" required>
       </div>
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" formControlName="email" placeholder="Enter the Email">
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter the Email" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Subject</label>
+        <input type="email" class="form-control" formControlName="subject" value="Internship">
       </div>
      
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="exampleInputFile">File input</label>
         <input type="file" formControlName="fileinput">
         <p class="help-block">Find the file name from your device.</p>
-      </div>
+      </div> -->
       <div class="form group">
       <button type="submit" class="btn btn-primary">Send</button>
       <button (click)="goBack()" type="button" class="btn btn-default" [routerLink]="['/']" >Back</button>

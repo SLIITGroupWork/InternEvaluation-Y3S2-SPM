@@ -125,6 +125,7 @@ const internReportSchema = new Schema({
     }]
 });
 
+<<<<<<< HEAD
 //Defining Supervisor Schema - Form - I Supervisor Schema
 const FormI1SupervisorSchema = new Schema({
 
@@ -194,11 +195,38 @@ const FormI1SupervisorSchema = new Schema({
 
 Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
 
+=======
+const vivaSchedule = new Schema({
+   batch:{
+       type:String,
+       required:true
+   },
+   specialization:{
+       type:String,
+       required:true
+   },
+   scheduleDate:{
+       type:Date,
+       required:true
+   },
+   allocationTime:{
+       type:Number,
+       required:true
+   },
+   endDate:{
+       type:Date,
+       required:true
+   }
+});
+
+>>>>>>> dev
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
 
 Mongoose.model('InternReport', internReportSchema);
 Mongoose.model('FormI5',FormI5);
+
+Mongoose.model('VivaSchedule',vivaSchedule);
 
 Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {
     if (err) {

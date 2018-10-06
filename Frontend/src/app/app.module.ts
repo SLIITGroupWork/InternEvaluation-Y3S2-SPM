@@ -9,6 +9,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
 import { Form1SupervisorComponent } from './form1-supervisor/form1-supervisor.component';
+import { VivaComponent } from './viva/viva.component';
+import { ApiService } from './api.service';
+import { ViewvivaComponent } from './viewviva/viewviva.component';
+
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -24,15 +28,29 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component: DashboardComponent,
         pathMatch: 'full'
     },
-    // {
-    //     path: 'login',
-    //     data: { title: 'Login' }
-    // },
-    // {
-    //     path: '',
-    //     redirectTo: 'login',
-    //     pathMatch: 'full'
-    // },
+    {
+        path: 'dashboard/form-5/form-5-email',
+        component: VivaComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard/form-5-email',
+        component: Form5EmailComponent,
+        pathMatch: 'full'
+    },
+    {
+
+        path:'dashboard/viewshedule',
+        component:ViewvivaComponent,
+        pathMatch:'full'
+    },
+    {
+
+        path:'dashboard/formI3',
+        component:ViewvivaComponent,
+        pathMatch:'full'
+    },
+ 
     {
         path: '**',
         component: PageNotFoundComponent
@@ -46,7 +64,10 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         DashboardComponent,
         PageNotFoundComponent,
         InternReportComponent,
-        Form1SupervisorComponent
+        Form1SupervisorComponent,
+        VivaComponent,
+        ViewvivaComponent
+    
     ],
     imports: [
         routings,
@@ -56,7 +77,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
     exports: [
     ],
     providers: [
-
+        ApiService
     ],
     bootstrap: [AppComponent]
 })

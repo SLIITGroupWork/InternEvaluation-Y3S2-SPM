@@ -33,7 +33,7 @@ Router.post('/sendFormI3/',(req,res) => {
         html += "<tr><td>" + response.data[0].activity + "</td><td>" + response.data[0].from + "</td><td>" + response.data[0].to + "</td></tr></table>";
         var body = {
             senderEmail: req.body.senderEmail,
-            emailSubject: "Form I-3",
+            emailSubject: "Form I-3 of " + req.body.studentID,
             emailBody: html
         }
         Controller.sendMail(body).then(function (response) {
