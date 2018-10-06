@@ -15,6 +15,64 @@ const User = new Schema({
         required: true
     }
 });
+const FormI3 = new Schema({
+    studentName:{
+        type:String,
+        required:true
+    },
+    studentID:{
+        type:String,
+        required:true
+    },
+    studentAddress:{
+        type:String,
+        required:true
+    },
+    studentContact:{
+        type:String,
+        required:true
+    },
+    studentEmail:{
+        type:String,
+        required:true
+    },
+    InternshipTitle:{
+        type:String,
+        required:true   
+    },
+    Specialization:{
+        type:String,
+        required:true   
+    },
+    PeriodFrom:{
+        type:String,
+        required:true   
+    },
+    PeriodTo:{
+        type:String,
+        required:true   
+    },
+    SupervisorName:{
+        type:String,
+        required:true   
+    },
+    Date:{
+        type:String,
+        required:true   
+    },
+    KeyTaskSummary:{
+        type:String,
+        required:true   
+    },
+    TasksCompleted:{
+        type:String,
+        required:true   
+    },
+    SupervisorRemarks:{
+        type:String,
+        required:true   
+    }
+})
 
 const FormI5 = new Schema({
     studentID:{
@@ -149,6 +207,7 @@ Mongoose.model('InternReport', internReportSchema);
 
 Mongoose.model('FormI5',FormI5);
 
+Mongoose.model('FormI3',FormI3);
 Mongoose.model('VivaSchedule',vivaSchedule);
 
 Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {

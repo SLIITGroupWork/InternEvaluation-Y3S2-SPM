@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+# Unnamed-Y2S2-SPM
+[![Build Status](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM.svg?branch=user-story%2F%23505)](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM) 
+=======
 # Internship Evaluation Project
 [![Build Status](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM.svg?branch=dev)](https://travis-ci.org/SLIITGroupWork/InternEvaluation-Y3S2-SPM)
+>>>>>>> dev
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 

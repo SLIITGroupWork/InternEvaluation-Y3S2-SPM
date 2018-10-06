@@ -13,6 +13,9 @@ import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
 
 
+import {FormI3Component } from './form-i3/form-i3.component';//new
+import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
+
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
         path: 'dashboard/intern-report',
@@ -64,7 +67,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         PageNotFoundComponent,
         InternReportComponent,
         VivaComponent,
-        ViewvivaComponent
+        ViewvivaComponent,
+        FormI3Component
     
     ],
     imports: [

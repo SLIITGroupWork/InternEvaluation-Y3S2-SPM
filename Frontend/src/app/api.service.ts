@@ -17,21 +17,30 @@ export class ApiService {
 
 
 
+    public submitForm3(body: any): Observable<any[]> {
+        return this.https
+            .post(`${this.API_URL}/formI3`, body)
+            .map(response => {
+                const payload = response.json();
+                return payload;
+            })
+            .catch(this.formatError);
+    }
+
     public submitForm5(body: any): Observable<any[]> {
         return this.https
             .post(`${this.API_URL}/formI5`, body)
-            .map(response => {
+            .map(response=>{
                 const payload = response.json();
                 return payload;
             })
             .catch(this.formatError);
-    }
 
+        }
 
-
-    public getFormByStudentId(id): Observable<any[]> {
+    public getFormByStuId(id): Observable<any[]> {
         return this.https
-            .get(`${this.API_URL}/formI5/${id}`)
+            .get(`${this.API_URL}/formI3/${id}`)
             .map(response => {
                 const payload = response.json();
                 return payload;
@@ -39,6 +48,26 @@ export class ApiService {
             .catch(this.formatError);
     }
 
+    public getFormByStudentId(id):Observable<any[]>{
+        return this.https
+        .get(`${this.API_URL}/formI5/${id}`)
+        .map(response=>{
+            const payload= response.json();
+            return payload;
+        })
+        .catch(this.formatError);
+    }
+
+
+    public sendMailForm3(body: any): Observable<any[]> {
+        return this.https
+            .post(`${this.API_URL}/formI3/sendFormI3`, body)
+            .map(response => {
+                const payload = response.json();
+                return payload;
+            })
+            .catch(this.formatError);
+    }
 
     public sendMailForm5(body: any): Observable<any[]> {
         return this.https
@@ -49,7 +78,6 @@ export class ApiService {
             })
             .catch(this.formatError);
     }
-
 
 
 

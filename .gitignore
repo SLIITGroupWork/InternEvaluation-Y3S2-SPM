@@ -72,5 +72,9 @@ Backend/.DS_Store
 Frontend/Thumbs.db
 Backend/Thumbs.db
 
+<<<<<<< HEAD
 # Temp
+=======
+#
+>>>>>>> f8a9569f5871044916b73da956469e0d329aa7d8
 New-Backend/*

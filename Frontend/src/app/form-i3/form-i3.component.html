@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="form-i3.component.css">
+
+</head>
+<body>
+    <div *ngIf="!studentID; else forminfo">
+              <div class="container">
+                <h2>Faculty Of Computing</h2>
+
+                <h1><strong>Form I-3</strong></h1>
+
+                <h2>INTERN'S DAILY DIARY</h2>
+                    <label>(To be filled by the Intern -Please ensure to email dully filled form after the completion of the internship )</label><br><br>
+                    <label><h3>Intern's Information</h3></label>
+                
+                <form [formGroup]="formI3" (ngSubmit)="addStudentPost(formI3.value)" action="/action_page.php">
+                  <div class="form-group">
+                    <label for="iname">Intern's Name:</label>
+                    <input type="text" class="form-control" formControlName="iname" placeholder="Enter name" name="iname">
+                  </div>
+                  <div class="form-group">
+                    <label for="sid">Student ID:</label>
+                    <input type="text" class="form-control" formControlName="sid" placeholder="ITXXXXXXXX" name="sid">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iaddress">Intern's Private Address:</label>
+                    <input type="text" class="form-control" formControlName="iAddress" placeholder="" name="iaddress">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iContactNumber">Contact Number:</label>
+                    <input type="text" class="form-control" formControlName="iContactNumber" placeholder="" name="iContactNumber">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iemail">Email Address:</label>
+                    <input type="email" class="form-control" formControlName="iemail" placeholder="" name="iemail">
+                  </div>
+
+                  <div class="form-group">
+                    <label><h3>Internship Information</h3></label>
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="iTitle">Interneship Title:</label>
+                    <input type="text" class="form-control" formControlName="iTitle" placeholder="Trainee Software Engineer" name="iTitle">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iSpecialisation">Specialization:</label>
+                    <input type="text" class="form-control" formControlName="iSpecialisation" placeholder="" name="iSpecialisation">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iPFrom">Overall Internship Period From:</label>
+                    <input type="date" class="form-control" formControlName="iPFrom" placeholder="2018-10-06" name="iPFrom">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="iPTo">Period To:</label>
+                    <input type="date" class="form-control" formControlName="iPTo" placeholder="2019-03-06" name="iPTo">
+                  </div>
+                  
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Training Party</th>
+                        <th>Training Description</th>
+                        <th>Duration in hours</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="text" class="form-control" id="tp"/></td>
+                        <td><input type="text" class="form-control" id="td"/></td>
+                        <td><input type="text" class="form-control" id="tpe"/></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control" id="tp"/></td>
+                        <td><input type="text" class="form-control" id="td"/></td>
+                        <td><input type="text" class="form-control" id="tpe"/></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control" id="tp"/></td>
+                        <td><input type="text" class="form-control" id="td"/></td>
+                        <td><input type="text" class="form-control" id="tpe"/></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control" id="tp"/></td>
+                        <td><input type="text" class="form-control" id="td"/></td>
+                        <td><input type="text" class="form-control" id="tpe"/></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control" id="tp"/></td>
+                        <td><input type="text" class="form-control" id="td"/></td>
+                        <td><input type="text" class="form-control" id="tpe"/></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="form-group">
+                    <label for="eSupName">External Supervisor Name:</label>
+                    <input type="text" class="form-control" formControlName="eSupName" placeholder="" name="eSupName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="eSupName">Date:</label>
+                    <input type="date" class="form-control" formControlName="eSDate" placeholder="" name="eSupName">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="isummary" style="font-weight: bold">Summary of the key tasks completed for the Internship period</label>
+                    <textarea class="form-control" rows="5" formControlName="isummary"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                        <label for="isummary" style="font-weight: bold">Details and tasks carried out for the Internship period</label>
+                        <textarea class="form-control" rows="10" formControlName="itasks"></textarea>
+                  </div>
+                  
+
+                  <div class="form-group form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="icertification"> I certify that above work information is correct and genuine work of mine
+                    </label>
+                  </div>
+
+                  <div class="form-group">
+                        <label for="isummary" style="font-weight: bold">Remarks and certification by the external supervisor</label>
+                        <textarea class="form-control" rows="10" formControlName="iremarks"></textarea>
+                  </div>
+
+                  <div class="form-group form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" name="EsCertification"> I certify that above work information is correct and genuine work of mine
+                        </label>
+                      </div>
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <button type="button" class="btn btn-primary">Send Email</button>
+                  <button type="reset"  class="btn btn-warning">Clear</button>
+                </form>
+              </div>
+              
+              
+          </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
+
