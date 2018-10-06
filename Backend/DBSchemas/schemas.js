@@ -33,6 +33,11 @@ const FormI5 = new Schema({
         type:String,
         required:true
     },
+    supervisorTitle:{
+        type:String,
+        required:true
+    },
+
     description1:{
         type:String,
         required:true
@@ -120,14 +125,74 @@ const internReportSchema = new Schema({
     }]
 });
 
-//Defining Supervisor Schema
+//Defining Supervisor Schema - Form - I Supervisor Schema
+const FormI1SupervisorSchema = new Schema({
 
+    employersName:{
+        type:String,
+        required:true
+    },
+    employersAddress:{
+        type:String,
+        required:true
+    },
+    supervisorName:{
+        type:String,
+        required:true
+    },
+    supervisorTitle:{
+        type:String,
+        required:true
+    },
+    internshipStartDate:{
+        type:String,
+        required:true
+    },
+    internshipEndDate:{
+        type:String,
+        required:true
+    },
+    noHours_Week:{
+        type:Number,
+        required:true
+    },
+    supervisorPhone:{
+        type:String,
+        required:true
+    },
+    supervisorEmail:{
+        type:String,
+        required:true
+    },
+    //List of the tasks the students is expected to complete 
+    studentExpectedTask:{
+        type:String,
+    },
+    //List what the student will learn during the internship period 
+    studentExpectedLearn:{
+        type:String,
+    },
+    externalSupervisorName:{
+        type:String,
+        required:true
+    },
+    //Date the Supervisor/Employer Fills the Form-I 
+    Date:{
+        type:String,
+        required:true
+    }
+
+
+});
+
+
+
+Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
 
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
 
 Mongoose.model('InternReport', internReportSchema);
-
 Mongoose.model('FormI5',FormI5);
 
 Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {
