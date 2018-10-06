@@ -1,3 +1,114 @@
-<p>
-  form1-supervisor works!
-</p>
+<div *ngIf="!studentID; else forminfo ">
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+      <div class="ui-g-12">
+
+          <div class="ui-g-12 ui-g-nopad">
+            <button routerLink="/dashboard" pButton type="button" icon="fa fa-arrow-left" label="Dashboard" class="ui-button-secondary"></button>
+            <h2 style="color: blueviolet">Form I-1</h2>
+          </div>
+
+          <div style="align-items: center">
+              <h3>Internship Acceptance Form - Supervisor Section</h3>
+          </div>
+
+          <div class="form-group">
+              <label for="employerName">Employer Name</label>
+              <input type="text" class="form-control" placeholder="Enter the your Employer Name" formControlName="employerName">
+          </div>
+          <!-- <div class="alert alert-warning" role="alert" *ngIf="!rForm.controls['studentID'].valid && !rForm.controls['studentID'].touched">
+        <strong>{{titlealert}}</strong>
+    </div> -->
+          <div class="form-group">
+              <label for="employerAddress">Employer Address</label>
+              <input type="text" class="form-control"  placeholder="Enter the Employer Address" formControlName="employerAddress">
+          </div>
+
+          <div class="form-group">
+              <label for="supervisorTitle">Supervisor Title</label>
+              <input type="text" class="form-control" placeholder="Enter the Supervisor Title" formControlName="supervisorTitle">
+          </div>
+
+          <div class="form-group">
+              <label for="supervisorName">Supervisor Name</label>
+              <input type="text" class="form-control" placeholder="Enter the Supervisor Name" formControlName="supervisorName">
+          </div>
+
+          <div class="form-group">
+            <label for="supervisorPhone">Supervisor Phone</label>
+            <input type="text" class="form-control" placeholder="Enter the Supervisor Phone" formControlName="supervisorPhone">
+          </div>
+
+          <div class="form-group">
+            <label for="supervisorEmail">Supervisor Email</label>
+            <input type="email" class="form-control" placeholder="Enter the Supervisor Email" formControlName="supervisorEmail">
+          </div>
+
+          <div class="form-group">
+            <label for="internshipStartDate">Internship Start Date</label>
+            <input type="date" class="form-control" placeholder="mm/dd/yyyy" formControlName="internshipStartDate">
+          </div>
+
+          <div class="form-group">
+            <label for="internshipEndDate">Internship End Date</label>
+            <input type="date" class="form-control" placeholder="mm/dd/yyyy" formControlName="internshipEndDate">
+          </div>
+
+          <div class="form-group">
+            <label>Note:
+               Recommended period is no less than 6 months 
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="noHoursWeek">No of Hours / Week</label>
+            <input type="number" class="form-control" placeholder="Enter the No of Hours / Week" formControlName="noHoursWeek">
+          </div>
+
+          <div class="form-group">
+            <label for="studentTaskDescription">Please list the tasks the students is expected to complete.</label>
+            <textarea class="form-control" rows="10" formControlName="studentTaskDescription"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="studentLearnDescription">List what the student will learn during the internship period.</label>
+            <textarea class="form-control" rows="10" formControlName="studentLearnDescription"></textarea>
+          </div>
+
+
+          <div class="form-group">
+              <label for="externelsupervisor">External Supervisor’s Name</label>
+              <input type="text" class="form-control" placeholder="" formControlName="externelsupervisor">
+          </div>
+
+
+          <div class="form-group">
+              <label for="date">Date</label>
+              <input type="date" class="form-control" placeholder="mm/dd/yyyy" formControlName="date">
+          </div>
+
+          <div class="form-group">
+              <label>Note:
+                  Please e-mail this form within two weeks after the date of completion of the 6 month internship
+                  directly to saman.g@sliit.lk by the external supervisor’s official e-mail
+              </label>
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary" [disabled]="!rForm.valid">Submit and Save</button>
+              <!-- <button (click)="navigate()" type="button" class="btn btn-warning" [disabled]="!rForm.valid"
+                  [routerLink]="['/dashboard/form-5/form-5-email']">Next</button> -->
+          </div>
+      </div>
+  </form>
+
+</div>
+
+
+<ng-template #forminfo>
+  <div class="container">
+      <div class="row columns ">
+          <h1>{{studentID}}</h1>
+
+          <p>{{description}}</p>
+      </div>
+  </div>
+</ng-template>

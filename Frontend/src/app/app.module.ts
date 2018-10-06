@@ -50,6 +50,11 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component:ViewvivaComponent,
         pathMatch:'full'
     },
+    {
+        path:'dashboard/formI-1-supervisor',
+        component:Form1SupervisorComponent,
+        pathMatch:'full'
+    },
  
     {
         path: '**',
