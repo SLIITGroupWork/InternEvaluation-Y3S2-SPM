@@ -8,6 +8,8 @@ import { Form5EmailComponent } from './form5-email/form5-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
+import { VivaComponent } from './viva/viva.component';
+
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -21,6 +23,11 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
     {
         path: 'dashboard',
         component: DashboardComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard/form-5/form-5-email',
+        component: VivaComponent,
         pathMatch: 'full'
     },
     // {
@@ -44,7 +51,9 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         Form5Component,
         DashboardComponent,
         PageNotFoundComponent,
-        InternReportComponent
+        InternReportComponent,
+        VivaComponent
+    
     ],
     imports: [
         routings,
