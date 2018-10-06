@@ -177,6 +177,29 @@ const internReportSchema = new Schema({
     }]
 });
 
+const vivaSchedule = new Schema({
+   batch:{
+       type:String,
+       required:true
+   },
+   specialization:{
+       type:String,
+       required:true
+   },
+   scheduleDate:{
+       type:Date,
+       required:true
+   },
+   allocationTime:{
+       type:Number,
+       required:true
+   },
+   endDate:{
+       type:Date,
+       required:true
+   }
+});
+
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
 
@@ -185,6 +208,7 @@ Mongoose.model('InternReport', internReportSchema);
 Mongoose.model('FormI5',FormI5);
 
 Mongoose.model('FormI3',FormI3);
+Mongoose.model('VivaSchedule',vivaSchedule);
 
 Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {
     if (err) {
