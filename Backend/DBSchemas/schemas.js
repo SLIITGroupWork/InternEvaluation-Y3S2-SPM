@@ -192,9 +192,6 @@ const FormI1SupervisorSchema = new Schema({
 });
 
 
-
-Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
-
 =======
 const vivaSchedule = new Schema({
    batch:{
@@ -220,6 +217,8 @@ const vivaSchedule = new Schema({
 });
 
 >>>>>>> dev
+
+Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
 

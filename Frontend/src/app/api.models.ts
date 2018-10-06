@@ -15,3 +15,23 @@ export class Form5 {
     date: String;
     type: String;
 }
+
+export class Form1Supervisor{
+    studentID: String;
+    employersName: String;
+    employersAddress: String;
+    supervisorName: String;
+    supervisorTitle: String;
+    internshipStartDate: String;
+    internshipEndDate: String;
+    noHours_Week: Number;
+    supervisorPhone: String;
+    supervisorEmail: String;
+    //List of the tasks the students is expected to complete 
+    studentExpectedTask:String;
+    //List what the student will learn during the internship period 
+    studentExpectedLearn: String;
+    externalSupervisorName: String;
+    //Date the Supervisor/Employer Fills the Form-I 
+    date: String;
+}
