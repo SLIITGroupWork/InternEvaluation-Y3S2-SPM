@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
 
 import {FormI3Component } from './form-i3/form-i3.component';//new
+import { ApiService } from './api.service';
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -56,7 +57,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
     exports: [
     ],
     providers: [
-
+        ApiService
     ],
     bootstrap: [AppComponent]
 })
