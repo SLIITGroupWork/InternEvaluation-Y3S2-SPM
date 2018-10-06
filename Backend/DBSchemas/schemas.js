@@ -125,7 +125,6 @@ const internReportSchema = new Schema({
     }]
 });
 
-<<<<<<< HEAD
 //Defining Supervisor Schema - Form - I Supervisor Schema
 const FormI1SupervisorSchema = new Schema({
 
@@ -192,7 +191,6 @@ const FormI1SupervisorSchema = new Schema({
 });
 
 
-=======
 const vivaSchedule = new Schema({
    batch:{
        type:String,
@@ -216,7 +214,6 @@ const vivaSchedule = new Schema({
    }
 });
 
->>>>>>> dev
 
 Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
 Mongoose.model('User', User);

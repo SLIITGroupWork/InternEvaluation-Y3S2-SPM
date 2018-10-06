@@ -27,6 +27,16 @@ export class ApiService {
             .catch(this.formatError);
     }
     
+    
+    public submmitForm1Supervisor(body: any): Observable<any[]> {
+        return this.https
+            .post(`${this.API_URL}/formI5`, body)
+            .map(response => {
+                const payload = response.json();
+                return payload;
+            })
+            .catch(this.formatError);
+    }
 
 
     public getFormByStudentId(id): Observable<any[]> {
@@ -49,6 +59,8 @@ export class ApiService {
             })
             .catch(this.formatError);
     }
+
+   
 
 
 
