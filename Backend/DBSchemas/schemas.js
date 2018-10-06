@@ -128,6 +128,11 @@ const internReportSchema = new Schema({
 //Defining Supervisor Schema - Form - I Supervisor Schema
 const FormI1SupervisorSchema = new Schema({
 
+    //A unique studentID field to identify a collection 
+    studentID:{
+        type:String,
+        required:true
+    },
     employersName:{
         type:String,
         required:true
@@ -177,7 +182,7 @@ const FormI1SupervisorSchema = new Schema({
         required:true
     },
     //Date the Supervisor/Employer Fills the Form-I 
-    Date:{
+    date:{
         type:String,
         required:true
     }
