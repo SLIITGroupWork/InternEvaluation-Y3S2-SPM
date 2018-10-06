@@ -21,5 +21,6 @@ export class IRStepsComponent implements OnInit {
     public changePage(index: number): void {
         this.activeIndex = index;
         this.activeIndexChange.emit(this.activeIndex);
+        window.scrollTo(0, 0);
     }
 }

@@ -378,7 +378,7 @@ export class InternReportComponent implements OnInit {
                 for (let key in (this.irFormIntroduction as FormGroup).controls) {
 
                     if (key === 'glossary') {
-                        
+
                         (this.irFormIntroduction.get(key) as FormArray).controls.forEach((frmGrp: FormGroup) => {
                             for (let key in frmGrp.controls) {
                                 frmGrp.get(key).markAsTouched();
@@ -425,5 +425,7 @@ export class InternReportComponent implements OnInit {
             // Show a warning message when form incompelte
             this.msgService.add({ severity: 'warn', summary: 'Form incomplete', detail: 'Please complete the form' });
         }
+
+        window.scrollTo(0, 0);
     }
 }
