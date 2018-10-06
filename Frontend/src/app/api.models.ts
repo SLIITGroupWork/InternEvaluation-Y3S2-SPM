@@ -20,13 +20,13 @@ export class Form1Supervisor{
     studentID: String;
     employersName: String;
     employersAddress: String;
-    supervisorName: String;
     supervisorTitle: String;
-    internshipStartDate: String;
-    internshipEndDate: String;
-    noHours_Week: Number;
+    supervisorName: String;
     supervisorPhone: String;
     supervisorEmail: String;
+    internshipStartDate: String;
+    internshipEndDate: String;
+    noHours_Week: Number; 
     //List of the tasks the students is expected to complete 
     studentExpectedTask:String;
     //List what the student will learn during the internship period 
