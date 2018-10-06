@@ -1,12 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { Form5Component } from './form5/form5.component';
+import { Form5EmailComponent } from './form5-email/form5-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
+import { VivaComponent } from './viva/viva.component';
+import { ApiService } from './api.service';
+import { ViewvivaComponent } from './viewviva/viewviva.component';
+
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
     {
@@ -14,19 +19,37 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component: InternReportComponent
     },
     {
+        path: 'dashboard/form-5',
+        component: Form5Component
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent,
         pathMatch: 'full'
     },
-    // {
-    //     path: 'login',
-    //     data: { title: 'Login' }
-    // },
-    // {
-    //     path: '',
-    //     redirectTo: 'login',
-    //     pathMatch: 'full'
-    // },
+    {
+        path: 'dashboard/form-5/form-5-email',
+        component: VivaComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard/form-5-email',
+        component: Form5EmailComponent,
+        pathMatch: 'full'
+    },
+    {
+
+        path:'dashboard/viewshedule',
+        component:ViewvivaComponent,
+        pathMatch:'full'
+    },
+    {
+
+        path:'dashboard/formI3',
+        component:ViewvivaComponent,
+        pathMatch:'full'
+    },
+ 
     {
         path: '**',
         component: PageNotFoundComponent
@@ -35,9 +58,14 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 @NgModule({
     declarations: [
         AppComponent,
+        Form5EmailComponent,
+        Form5Component,
         DashboardComponent,
         PageNotFoundComponent,
-        InternReportComponent
+        InternReportComponent,
+        VivaComponent,
+        ViewvivaComponent
+    
     ],
     imports: [
         routings,
@@ -47,7 +75,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
     exports: [
     ],
     providers: [
-
+        ApiService
     ],
     bootstrap: [AppComponent]
 })
