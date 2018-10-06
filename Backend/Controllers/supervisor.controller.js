@@ -3,7 +3,7 @@ var mongoose = require('../DBSchemas/schemas');
 const activitySchema = mongoose.model('ActivityDummy');
 
 let supervisorController = function () {
-    this.sendMail = function (body) {
+    this.sendMail = (body)=> {
         return new Promise((resolve, reject) => {
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
