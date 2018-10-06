@@ -11,6 +11,7 @@ import { InternReportComponent } from './intern-report/intern-report.component';
 import { VivaComponent } from './viva/viva.component';
 import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
+import { IRStepsComponent } from './intern-report/i-r-steps/i-r-steps.component';
 
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
@@ -64,7 +65,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         PageNotFoundComponent,
         InternReportComponent,
         VivaComponent,
-        ViewvivaComponent
+        ViewvivaComponent,
+        IRStepsComponent
     
     ],
     imports: [

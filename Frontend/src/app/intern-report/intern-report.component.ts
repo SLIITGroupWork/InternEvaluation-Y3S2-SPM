@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/primeng';
 import { FormGroup, FormControl, FormArray, AbstractControl, Validators } from '@angular/forms';
 import { InternReportValidator } from './intern-report.validator';
-import { InternReportVM, InternReportRequest } from '../../shared';
+import { InternReportVM, InternReportRequest, MenuItemVM } from '../../shared';
 import { InternReportService } from '../../shared/services/inter-report.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'intern-report',
@@ -12,15 +12,7 @@ import { InternReportService } from '../../shared/services/inter-report.service'
 })
 export class InternReportComponent implements OnInit {
 
-    /**
-     * Step names
-     */
-    public steps: MenuItem[] = [
-        { label: 'Introduction' },
-        { label: 'Internship Insight' },
-        { label: 'Learning Outcome' },
-        { label: 'Sample Work' }
-    ];
+    
 
     /**
      * Current step that actives
@@ -58,6 +50,24 @@ export class InternReportComponent implements OnInit {
         private apiService: InternReportService,
         private msgService: MessageService
     ) { }
+
+    /**
+     * Step names
+     */
+    // public steps: MenuItemVM[] = [
+    //     { label: 'Introduction', isError: false },
+    //     { label: 'Internship Insight', isError: false },
+    //     { label: 'Learning Outcome', isError: false },
+    //     { label: 'Sample Work', isError: false }
+    // ];
+    public get steps(): MenuItemVM[] {
+        return [
+            { label: 'Introduction', isError: Boolean(this.irFormIntroduction.errors) },
+            { label: 'Internship Insight', isError: Boolean(this.irFormInternshipInsight.errors) },
+            { label: 'Learning Outcome', isError: Boolean(this.irFormLearningOutcome.errors) },
+            { label: 'Sample Work', isError: Boolean(this.irFormSampleWork.errors) }
+        ];
+    }
 
     //#region internReportForm's AbstractControls
 
@@ -128,6 +138,7 @@ export class InternReportComponent implements OnInit {
     //#endregion
 
     ngOnInit() {
+
     }
 
     //#region internReportForm's glossary group
@@ -357,6 +368,48 @@ export class InternReportComponent implements OnInit {
             else {
                 this.msgService.add({ severity: 'error', summary: 'Failed to post', detail: 'Something went wrong' });
             }
+        }
+        else {
+
+            if (this.irFormIntroduction.invalid) {
+                
+                for (let key in (this.irFormIntroduction as FormGroup).controls) {
+                    this.irFormIntroduction.get(key).markAsTouched();
+                }
+
+                this.irFormIntroduction.setErrors({ 'error': true });
+            }
+
+            if (this.irFormInternshipInsight.invalid) {
+
+                for (let key in (this.irFormInternshipInsight as FormGroup).controls) {
+                    this.irFormInternshipInsight.get(key).markAsTouched();
+                }
+
+                this.irFormInternshipInsight.setErrors({ 'error': true });
+            }
+
+            if (this.irFormLearningOutcome.invalid) {
+
+                for (let key in (this.irFormLearningOutcome as FormGroup).controls) {
+                    this.irFormLearningOutcome.get(key).markAsTouched();
+                }
+
+                this.irFormLearningOutcome.setErrors({ 'error': true });
+            }
+
+            if (this.irFormSampleWork.invalid) {
+
+                this.irFormSampleWork.controls.forEach((frmGrp: FormGroup) => {
+                    for (let key in frmGrp.controls) {
+                        frmGrp.get(key).markAsTouched();
+                    }
+                });
+
+                this.irFormSampleWork.setErrors({ 'error': true });
+            }
+
+            this.msgService.add({ severity: 'warn', summary: 'Form incomplete', detail: 'Please complete the form' });
         }
     }
 }
