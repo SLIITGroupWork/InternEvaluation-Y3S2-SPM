@@ -371,10 +371,23 @@ export class InternReportComponent implements OnInit {
         }
         else {
 
+            // If a form invalid, then loop that form and get the controllers
+            // Then make those controller as touched. so users can see error messages
             if (this.irFormIntroduction.invalid) {
                 
                 for (let key in (this.irFormIntroduction as FormGroup).controls) {
-                    this.irFormIntroduction.get(key).markAsTouched();
+
+                    if (key === 'glossary') {
+                        
+                        (this.irFormIntroduction.get(key) as FormArray).controls.forEach((frmGrp: FormGroup) => {
+                            for (let key in frmGrp.controls) {
+                                frmGrp.get(key).markAsTouched();
+                            }
+                        });
+                    }
+                    else {
+                        this.irFormIntroduction.get(key).markAsTouched();
+                    }
                 }
 
                 this.irFormIntroduction.setErrors({ 'error': true });
@@ -409,6 +422,7 @@ export class InternReportComponent implements OnInit {
                 this.irFormSampleWork.setErrors({ 'error': true });
             }
 
+            // Show a warning message when form incompelte
             this.msgService.add({ severity: 'warn', summary: 'Form incomplete', detail: 'Please complete the form' });
         }
     }
