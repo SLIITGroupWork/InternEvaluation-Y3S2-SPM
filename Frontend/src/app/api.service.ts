@@ -27,10 +27,10 @@ export class ApiService {
             .catch(this.formatError);
     }
     
-    
+
     public submmitForm1Supervisor(body: any): Observable<any[]> {
         return this.https
-            .post(`${this.API_URL}/formI5`, body)
+            .post(`${this.API_URL}/formI1Supervisor`, body)
             .map(response => {
                 const payload = response.json();
                 return payload;

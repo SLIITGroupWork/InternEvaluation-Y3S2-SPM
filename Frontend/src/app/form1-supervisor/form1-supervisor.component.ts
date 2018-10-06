@@ -57,4 +57,33 @@ export class Form1SupervisorComponent implements OnInit {
     
   }
 
+  addPost(post) {
+    
+    this.form1SupervisorData.studentID = post.studentID;
+    this.form1SupervisorData.employersName = post.employersName;
+    this.form1SupervisorData.employersAddress = post.employersAddress;
+    this.form1SupervisorData.supervisorName = post.supervisorName;
+    this.form1SupervisorData.supervisorTitle = post.supervisorTitle;
+    this.form1SupervisorData.internshipStartDate = post.internshipStartDate;
+    this.form1SupervisorData.internshipEndDate = post.internshipEndDate;
+    this.form1SupervisorData.noHours_Week = post.noHours_Week;
+    this.form1SupervisorData.supervisorPhone = post.supervisorPhone;
+    this.form1SupervisorData.supervisorEmail = post.supervisorEmail;
+    this.form1SupervisorData.studentExpectedTask = post.studentExpectedTask;
+    this.form1SupervisorData.studentExpectedLearn = post.studentExpectedLearn;
+    this.form1SupervisorData.externalSupervisorName = post.externalSupervisorName;
+    this.form1SupervisorData.date = post.date;
+  
+
+    console.log('form data: ', this.form1SupervisorData);
+
+    this.api.submmitForm1Supervisor(this.form1SupervisorData).subscribe(res => {
+        console.log('response: ', res);
+        if(res){
+          alert('Sucsess!');
+        }
+    });
+
+  }
+
 }
