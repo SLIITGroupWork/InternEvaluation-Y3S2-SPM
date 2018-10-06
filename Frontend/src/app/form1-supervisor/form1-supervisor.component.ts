@@ -59,19 +59,38 @@ export class Form1SupervisorComponent implements OnInit {
 
   addPost(post) {
     
+
+    //For Testing 
+    // this.form1SupervisorData.studentID = "IT15000002";
+    // this.form1SupervisorData.employersName = "Dinithi";
+    // this.form1SupervisorData.employersAddress = "Colombo";
+    // this.form1SupervisorData.supervisorName = "Sahan";
+    // this.form1SupervisorData.supervisorTitle = "Mr";
+    // this.form1SupervisorData.internshipStartDate = "2014-01-01";
+    // this.form1SupervisorData.internshipEndDate = "2014-01-01";
+    // this.form1SupervisorData.noHours_Week = 25;
+    // this.form1SupervisorData.supervisorPhone = "011255255";
+    // this.form1SupervisorData.supervisorEmail = "sahan@gmail.com";
+    // this.form1SupervisorData.studentExpectedTask = "studentExpectedTask";
+    // this.form1SupervisorData.studentExpectedLearn = "studentExpectedLearn";
+    // this.form1SupervisorData.externalSupervisorName = "Sanju";
+    // this.form1SupervisorData.date = "2014-01-01";
+
+
+
     this.form1SupervisorData.studentID = post.studentID;
     this.form1SupervisorData.employersName = post.employersName;
     this.form1SupervisorData.employersAddress = post.employersAddress;
-    this.form1SupervisorData.supervisorName = post.supervisorName;
     this.form1SupervisorData.supervisorTitle = post.supervisorTitle;
-    this.form1SupervisorData.internshipStartDate = post.internshipStartDate;
-    this.form1SupervisorData.internshipEndDate = post.internshipEndDate;
-    this.form1SupervisorData.noHours_Week = post.noHours_Week;
+    this.form1SupervisorData.supervisorName = post.supervisorName;
     this.form1SupervisorData.supervisorPhone = post.supervisorPhone;
     this.form1SupervisorData.supervisorEmail = post.supervisorEmail;
-    this.form1SupervisorData.studentExpectedTask = post.studentExpectedTask;
-    this.form1SupervisorData.studentExpectedLearn = post.studentExpectedLearn;
-    this.form1SupervisorData.externalSupervisorName = post.externalSupervisorName;
+    this.form1SupervisorData.internshipStartDate = post.internshipStartDate;
+    this.form1SupervisorData.internshipEndDate = post.internshipEndDate;
+    this.form1SupervisorData.noHours_Week = post.noHoursWeek;
+    this.form1SupervisorData.studentExpectedTask = post.studentTaskDescription;
+    this.form1SupervisorData.studentExpectedLearn = post.studentLearnDescription;
+    this.form1SupervisorData.externalSupervisorName = post.externalsupervisor;
     this.form1SupervisorData.date = post.date;
   
 
