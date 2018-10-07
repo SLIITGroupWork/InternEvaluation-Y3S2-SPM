@@ -54,7 +54,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
  
     {
         path: '**',
-        component: PageNotFoundComponent
+        component: DashboardComponent
     }
 ]);
 @NgModule({
