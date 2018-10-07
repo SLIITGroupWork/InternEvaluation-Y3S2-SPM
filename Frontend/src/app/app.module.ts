@@ -12,6 +12,7 @@ import { Form1SupervisorComponent } from './form1-supervisor/form1-supervisor.co
 import { VivaComponent } from './viva/viva.component';
 import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
+import { Form1SupervisorEmailComponent } from './form1-supervisor-email/form1-supervisor-email.component';
 
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
@@ -55,6 +56,11 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component:Form1SupervisorComponent,
         pathMatch:'full'
     },
+    {
+        path:'dashboard/formI-1-supervisor-email',
+        component:Form1SupervisorEmailComponent,
+        pathMatch:'full'
+    },
  
     {
         path: '**',
@@ -71,7 +77,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         InternReportComponent,
         Form1SupervisorComponent,
         VivaComponent,
-        ViewvivaComponent
+        ViewvivaComponent,
+        Form1SupervisorEmailComponent
     
     ],
     imports: [

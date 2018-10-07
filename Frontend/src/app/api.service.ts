@@ -60,6 +60,16 @@ export class ApiService {
             .catch(this.formatError);
     }
 
+    public sendMailForm1Supervisor(body: any): Observable<any[]> {
+        return this.https
+            .post(`${this.API_URL}/formI1Supervisor/sendFormI1Supervisor`, body)
+            .map(response => {
+                const payload = response.json();
+                return payload;
+            })
+            .catch(this.formatError);
+    }
+
    
 
 
