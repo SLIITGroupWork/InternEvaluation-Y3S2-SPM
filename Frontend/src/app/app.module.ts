@@ -9,9 +9,11 @@ import { Form5EmailComponent } from './form5-email/form5-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { InternReportComponent } from './intern-report/intern-report.component';
+import { Form1SupervisorComponent } from './form1-supervisor/form1-supervisor.component';
 import { VivaComponent } from './viva/viva.component';
 import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
+import { Form1SupervisorEmailComponent } from './form1-supervisor-email/form1-supervisor-email.component';
 import { IRStepsComponent } from './intern-report/i-r-steps/i-r-steps.component';
 
 
@@ -51,6 +53,16 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         component:ViewvivaComponent,
         pathMatch:'full'
     },
+    {
+        path:'dashboard/formI-1-supervisor',
+        component:Form1SupervisorComponent,
+        pathMatch:'full'
+    },
+    {
+        path:'dashboard/formI-1-supervisor-email',
+        component:Form1SupervisorEmailComponent,
+        pathMatch:'full'
+    },
  
     {
         path: '**',
@@ -66,8 +78,10 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         DashboardComponent,
         PageNotFoundComponent,
         InternReportComponent,
+        Form1SupervisorComponent,
         VivaComponent,
         ViewvivaComponent,
+        Form1SupervisorEmailComponent,
         IRStepsComponent
     
     ],
