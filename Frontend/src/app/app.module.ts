@@ -12,6 +12,7 @@ import { VivaComponent } from './viva/viva.component';
 import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
 import { FormI3EmailComponent } from './form-i3-email/form-i3-email.component';
+import { IRStepsComponent } from './intern-report/i-r-steps/i-r-steps.component';
 
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
@@ -58,7 +59,7 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
 
     {
         path: '**',
-        component: PageNotFoundComponent
+        component: DashboardComponent
     }
 ]);
 @NgModule({
@@ -71,8 +72,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         InternReportComponent,
         VivaComponent,
         ViewvivaComponent,
-        FormI3EmailComponent
-
+        FormI3EmailComponent,
+        IRStepsComponent
     ],
     imports: [
         routings,

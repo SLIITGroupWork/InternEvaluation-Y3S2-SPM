@@ -1,0 +1,46 @@
+
+.step-nav{
+    text-align: center;
+}
+
+.step-nav .step{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    border: 1px solid #40adef;
+    color: #40adef;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+    display: block;
+}
+
+.step-nav .step-transparent{
+    background-color: transparent;
+    font-size: 25px;
+    color: #000;
+    border: none;
+}
+
+.step-nav p{
+    margin: 10px 0;
+}
+
+.step-nav .step.active{
+    background-color: #40adef;
+    border: 1px solid #40adef;
+    color: #fff;
+}
+
+.pointer-hand {
+    cursor: pointer;
+}
+
+.font-size-1_2 {
+    font-size: 1.2em;
+}
+
+.active-font {
+    font-weight: bold;
+}
