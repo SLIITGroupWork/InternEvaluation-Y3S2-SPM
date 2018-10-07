@@ -13,6 +13,7 @@ import { VivaComponent } from './viva/viva.component';
 import { ApiService } from './api.service';
 import { ViewvivaComponent } from './viewviva/viewviva.component';
 import { Form1SupervisorEmailComponent } from './form1-supervisor-email/form1-supervisor-email.component';
+import { IRStepsComponent } from './intern-report/i-r-steps/i-r-steps.component';
 
 
 const routings: ModuleWithProviders = RouterModule.forRoot([
@@ -78,7 +79,8 @@ const routings: ModuleWithProviders = RouterModule.forRoot([
         Form1SupervisorComponent,
         VivaComponent,
         ViewvivaComponent,
-        Form1SupervisorEmailComponent
+        Form1SupervisorEmailComponent,
+        IRStepsComponent
     
     ],
     imports: [

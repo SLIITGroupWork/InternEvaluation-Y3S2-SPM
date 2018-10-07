@@ -13,16 +13,24 @@
 
             <div class="ui-g-12">
                 <button pButton type="button" icon="fa fa-arrow-left" label="Previous" class="ui-button-success"
-                   (click)="onPreviousClick()" [disabled]="activeIndex == 0"></button>
+                    (click)="onPreviousClick()" [disabled]="activeIndex == 0"></button>
 
-                <button pButton type="button" icon="{{ (activeIndex < 3) ? 'fa fa-arrow-right' : 'fa fa-check' }}" label="{{ (activeIndex < 3) ? 'Next' : 'Done' }}" 
-                    class="pull-right" [ngClass]="{ 'ui-button-success': (activeIndex < 3), 'ui-button-primary': (activeIndex == 3) }" iconPos="right"
-                    (click)="onNextClick()" [disabled]="activeIndex == 3 && (internReportForm.invalid || internReportForm.disabled)"></button>
+                <button pButton type="button" icon="{{ (activeIndex < 3) ? 'fa fa-arrow-right' : 'fa fa-check' }}"
+                    label="{{ (activeIndex < 3) ? 'Next' : 'Done' }}" class="pull-right" [ngClass]="{ 'ui-button-success': (activeIndex < 3), 'ui-button-primary': (activeIndex == 3) }"
+                    iconPos="right" (click)="onNextClick()" [disabled]="activeIndex == 3 && internReportForm.disabled"></button>
+            </div>
+
+            <div class="ui-g-12 ui-g-nopad">
+                <hr />
             </div>
 
             <div class="ui-g-12">
-                <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+                <i-r-steps [steps]="steps" [(activeIndex)]="activeIndex"></i-r-steps>
             </div>
+
+            <!-- <div class="ui-g-12">
+                <p-steps [model]="steps" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+            </div> -->
 
             <div class="ui-g-12 ui-g-nopad">
                 <hr />
@@ -299,8 +307,8 @@ Also, you can describe what might have been done differently if the same interns
                         </div>
 
                         <div class="ui-g-12">
-                            <button pButton type="button" icon="fa fa-check" label="Done" class="ui-button-primary pull-right" iconPos="right"
-                                style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.invalid || internReportForm.disabled"></button>
+                            <button pButton type="button" icon="fa fa-check" label="Done" class="ui-button-primary pull-right"
+                                iconPos="right" style="margin-left: 10px" (click)="onCompleteClick()" [disabled]="internReportForm.disabled"></button>
 
                             <button pButton type="button" icon="fa fa-refresh" label="Reset" class="ui-button-secondary pull-right"
                                 style="margin-right: 10px" (click)="resetInternReportForm()"></button>
