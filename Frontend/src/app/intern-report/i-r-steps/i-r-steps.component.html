@@ -1,0 +1,8 @@
+<div class="row step-nav">
+    <div class="col-xs-3" *ngFor="let step of steps; let ind = index">
+        <div class="step pointer-hand" [ngClass]="{ 'active': (ind == activeIndex) }" (click)="changePage(ind)">
+            {{ ind + 1 }}
+        </div>
+        <p class="pointer-hand font-size-1_2" [ngClass]="{ 'active-font': (ind == activeIndex), 'errorMessage': step.isError }" (click)="changePage(ind)">{{ step.label }}</p>
+    </div>
+</div>
