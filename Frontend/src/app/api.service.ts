@@ -19,13 +19,14 @@ export class ApiService {
 
     public submitForm5(body: any): Observable<any[]> {
         return this.https
-            .post(`${this.API_URL}/formI5`, body)
+            .post(`${this.API_URL}/supervisor`, body)
             .map(response => {
                 const payload = response.json();
                 return payload;
             })
             .catch(this.formatError);
     }
+
 
 
 
@@ -50,10 +51,19 @@ export class ApiService {
             .catch(this.formatError);
     }
 
+  public sendMailForm3(body: any): Observable<any[]> {
+    return this.https
+      .post(`${this.API_URL}/supervisor/sendFormI3`, body)
+      .map(response => {
+        const payload = response.json();
+        return payload;
+      })
+      .catch(this.formatError);
+  }
 
 
 
-    
+
 
 
 
@@ -140,7 +150,7 @@ export class ApiService {
     //         .catch(this.formatError);
     // }
 
-    
+
     // --------------- Error Handling Start ----------------------
     private formatError(error: any) {
         console.error('ApiService::handleError', error);
