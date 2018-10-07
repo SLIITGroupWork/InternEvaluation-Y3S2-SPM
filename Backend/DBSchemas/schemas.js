@@ -125,6 +125,44 @@ const internReportSchema = new Schema({
     }]
 });
 
+//Form-I Student Schema
+const Student = new Schema({
+    studentID:{
+        type:String,
+        required:true
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    homePhone:{
+        type:String,
+        required:true
+    },
+    mobilePhone:{
+        type: String,
+        required: true
+    },
+    email: [{type: String}],
+    semester: {
+        type: Number,
+        required: true
+    },
+    year:{
+        type: Number,
+        required: true
+    },
+    cgpa:{
+        type: Number,
+        required: true
+    }
+
+});
+
 //Defining Supervisor Schema - Form - I Supervisor Schema
 const FormI1SupervisorSchema = new Schema({
 
@@ -187,6 +225,8 @@ const FormI1SupervisorSchema = new Schema({
         required:true
     }
 
+    
+    
 
 });
 
@@ -216,13 +256,13 @@ const vivaSchedule = new Schema({
 
 
 Mongoose.model('FormI1Supervisor',FormI1SupervisorSchema);
+Mongoose.model('Student',Student);
 Mongoose.model('User', User);
 Mongoose.model('ActivityDummy', ActivityDummy);
-
 Mongoose.model('InternReport', internReportSchema);
 Mongoose.model('FormI5',FormI5);
-
 Mongoose.model('VivaSchedule',vivaSchedule);
+
 
 Mongoose.connect('mongodb://localhost:27017/internDB', (err) => {
     if (err) {
