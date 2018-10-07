@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export class FormI3{
     studentID:String;
     studentName:String;
@@ -15,7 +14,6 @@ export class FormI3{
     TasksCompleted:String;
     SupervisorRemarks:String;
 }
-=======
 export class Form5 {
     studentID: String;
     studentName: String;
@@ -33,4 +31,3 @@ export class Form5 {
     date: String;
     type: String;
 }
->>>>>>> dev
